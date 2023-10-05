@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Item 1",
+    "price": "Br 2000",
+    "color": "Red",
+    "image": "/shoes.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Item 2",
+    "price": "Br 2000",
+    "color": "Red",
+    "image": "/shoes.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Item 3",
+    "price": "Br 2000",
+    "color": "Red",
+    "image": "/shoes.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Item 4",
+    "price": "Br 2000",
+    "color": "Red",
+    "image": "/shoes.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Item 5",
+    "price": "Br 2000",
+    "color": "Red",
+    "image": "/shoes.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Item 6",
+    "price": "Br 2000",
+    "color": "Red",
+    "image": "/shoes.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Item 7",
+    "price": "Br 2000",
+    "color": "Red",
+    "image": "/shoes.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Item 8",
+    "price": "Br 2000",
+    "color": "Red",
+    "image": "/shoes.jpg"
+  }
+]

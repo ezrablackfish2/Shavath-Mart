@@ -1,0 +1,22 @@
+ [
+  {
+    "name": "Shavath Mart",
+    "link": "https://t.me/shavath",
+    "icon": "/telegram.png"
+  },
+  {
+    "name": "Shavath Mart",
+    "link": "https://www.instagram.com/shavathm/?igshid=NzZlODBkYWE4Ng%3D%3D",
+    "icon": "/instagram.svg"
+  },
+  {
+    "name": "Shavath Mart",
+    "link": "https://www.facebook.com/people/Shavath-Mart/61550216934460/?mibextid=ZbWKwL",
+    "icon": "/facebook.svg"
+  },
+  {
+    "name": "Shavath Mart",
+    "link": "https://wa.me/251912243671",
+    "icon": "/whatsapp.svg"
+  }
+]

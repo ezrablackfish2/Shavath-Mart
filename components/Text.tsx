@@ -1,3 +1,3 @@
 export default function Text(props){
-    return <p>{props.text}</p>
+    return <p className={props.className}>{props.text}</p>
 }
