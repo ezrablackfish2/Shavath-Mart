@@ -3,8 +3,16 @@ import Search from "./Search";
 import social_handles from '../utils/socila_handles.json'
 import Link from "next/link";
 import styles from "./Header.module.css";
+import ServiceSelector from "./Services";
+import { useState } from "react";
+import CustomDropdown from './CustomDropdown';
+import AboutSelector from './AboutSelector';
 
 export default function Header(){
+	        const [selectedService, setSelectedService] = useState("Services");
+	        const [selectedAbout, setSelectedAbout] = useState("About");
+	        const [selectOpen, setSelectOpen] = useState(false);
+		const [selectedDrop, setSelectedDrop] = useState("all");
     return (
         <>
             <div className={styles.header}>
@@ -35,6 +43,10 @@ export default function Header(){
 		</Link>
                 <Search />
             </div>
+	<div className={styles.dropdowns}>
+	<CustomDropdown selectedService={selectedService} setSelectedService={setSelectedService} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
+	<AboutSelector selectedAbout={selectedAbout} setSelectedAbout={setSelectedAbout} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
+	</div>
         </>
     )
 }

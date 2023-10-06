@@ -1,3 +1,31 @@
+
+.selectoptions {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	display: none;
+}
+
+.headersorter {
+	background-color: #ffffff;
+	padding: 5px 5px 5px 5px;
+	border: none;
+	font-family: 'Bellota', cursive;
+	cursor: pointer;
+}
+
+.headersortbox {
+	position: relative;
+	display: inline-block;
+	left: 10%;
+}
+
+.dropdowns {
+	position: relative;
+	display: inline;
+	width: 100%;
+}
 .header {
 	position: relative;
 	display: inline-block;
