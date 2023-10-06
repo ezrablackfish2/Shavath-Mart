@@ -20,12 +20,14 @@ export default function Header(){
 	example@gmail.com
 	</Link>
 	</div>
+	<div className={styles.headermedia}>
                 {social_handles.map(({icon, link})=> (
                     <div className={styles.headeritems}>
                         <Link className={styles.headerlink} href={link}><img className={styles.headerimages} src={icon} /></Link>
                     </div>
 
                 ))}
+	</div>
             </div>
             <div className={styles.navigationbar}>
 		<Link href="">

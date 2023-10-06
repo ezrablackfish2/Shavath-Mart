@@ -5,6 +5,10 @@
 	background-color: #FFA500;
 	height: 35px;
 }
+.headermedia {
+	position: relative;
+	display: inline;
+}
 .headeritems {
 	position: relative;
 	display: inline-block;
@@ -81,4 +85,36 @@
 	width: 25%;
 	top: 6px;
 	position: relative;
+}
+
+@media (max-width: 856px) {
+	.searchbar {
+		display: none;
+	}
+	.searchimage {
+		position: absolute;
+		top: -70px;
+		width: 30px;
+		right: 0%;
+	}
+}
+
+@media (max-width: 599px) {
+	.header {
+		height: 80px;
+	}
+	.headerphone {
+		left: 40%;
+	}
+	.headergmail {
+		left: 30%;
+		display: block;
+	}
+	.headermedia {
+		left: 25%;
+		display: block;
+	}
+	.headerimages {
+		margin-right: 25px;
+	}
 }
