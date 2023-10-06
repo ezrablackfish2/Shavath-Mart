@@ -1,0 +1,84 @@
+.header {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	background-color: #FFA500;
+	height: 35px;
+}
+.headeritems {
+	position: relative;
+	display: inline-block;
+	right: 0%;
+	margin-right: 2%;
+}
+
+.headerlink {
+	position: relative;
+}
+.headerimages {
+	position: relative;
+	top: 5px;
+	right: 1%;
+	width: 25px;
+}
+
+.headerphone {
+	left: 15%;
+	position: relative;
+	display: inline-block;
+	font-size: 80%;
+	font-family: 'Bellota', cursive;
+	margin-right: 2%;
+}
+
+.headergmail {
+	left: 20%;
+	position: relative;
+	display: inline-block;
+	font-family: 'Bellota', cursive;
+	font-size: 90%;
+	width: 55%;
+}
+.headerphoneimage {
+	display: inline-block;
+	width: 20px;
+	margin-right: 5px;
+}
+
+.headergmailimage {
+	display: inline-block;
+	width: 20px;
+	margin-right: 5px;
+}
+
+.navigationbar {
+	display: inline-block;
+	width: 100%;
+}
+
+.logo {
+	display: inline-block;
+	position: relative;
+	width: 100px;
+	left: 10%;
+	margin-right: 17%;
+}
+.Search {
+	display: inline-block;
+	position: relative;
+	right: 0%;
+	font-family: 'Bellota', cursive;
+	width: 60%;
+}
+.searchbar {
+	width: 80%;
+	border-radius: 10px 10px 10px 10px;
+	margin-right: 5px;
+}
+
+.searchimage {
+	position: inline-block;
+	width: 25%;
+	top: 6px;
+	position: relative;
+}
