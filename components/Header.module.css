@@ -25,6 +25,7 @@
 	position: relative;
 	display: inline;
 	width: 100%;
+	left: 20%;
 }
 .header {
 	position: relative;
@@ -113,6 +114,12 @@
 	width: 25%;
 	top: 6px;
 	position: relative;
+}
+
+@media (max-width: 1024px) {
+	.dropdowns {
+		display: none;
+	}
 }
 
 @media (max-width: 856px) {

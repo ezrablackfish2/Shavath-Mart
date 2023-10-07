@@ -27,7 +27,7 @@ function CustomDropdown ( {setSelectedService, selectedService, selectedDrop, se
   return (
     <div className={isOpen ? styles.dropdownopen : styles.dropdown} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className={(selectedDrop === "Services" || selectedDrop === "all") ? styles.select : styles.hiddenword} onClick={toggleDropdown}>
-        <div className={styles.selectorword}>Services</div> <div className={styles.imagebox}><img src="/dropdown.png" className={styles.dropdownarrow} /></div>
+        <div className={styles.selectorword}>{selectedService}</div> <div className={styles.imagebox}><img src="/dropdown.png" className={styles.dropdownarrow} /></div>
       </div>
       <div className={styles.options}>
 		{services.map((option, index) => (

@@ -1,3 +1,26 @@
+.select4open {
+	top: -20px;
+	position: relative;
+        left: 48%;
+        display: inline-block;
+        padding: 10px;
+        font-family: 'Bellota', cursive;
+        cursor: pointer;
+
+}
+
+
+.select3open {
+	top: -20px;
+	position: relative;
+        left: 32%;
+        display: inline-block;
+        padding: 10px;
+        font-family: 'Bellota', cursive;
+        cursor: pointer;
+
+}
+
 .hiddenword {
 	display: none;
 }
@@ -6,7 +29,7 @@
 	border-radius: 15px 15px 15px 15px;
 	display: inline-block;
 	position: relative;
-	width: 150px;
+	width: 200px;
 }
 
 .select2 {
@@ -17,9 +40,9 @@
 	cursor: pointer;
 }
 .select2open {
-	top: 0px;
+	top: -20px;
 	position: relative;
-	left: 160px;
+	left: 16%;
 	display: inline-block;
 	padding: 10px;
 	font-family: 'Bellota', cursive;
@@ -28,14 +51,15 @@
 
 .options2 {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: -20px;
+  left: 20px;
+  right: 200px;
   display: none;
   background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
   z-index: 1;
+	height: 210px;
 }
 
 .dropdownopen2 .options2 {
@@ -77,7 +101,7 @@
 	border-radius: 15px 15px 15px 15px;
 	display: inline-block;
 	position: relative;
-	width: 150px;
+	width: 210px;
 }
 
 .select {
@@ -91,8 +115,9 @@
 .options {
   position: absolute;
   top: 0px;
-  left: 0;
+  left: 20px;
   right: 0;
+  bottom: 0;
   display: none;
   background-color: #fff;
   border: 1px solid #ccc;

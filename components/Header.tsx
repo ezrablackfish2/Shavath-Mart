@@ -5,12 +5,16 @@ import Link from "next/link";
 import styles from "./Header.module.css";
 import ServiceSelector from "./Services";
 import { useState } from "react";
-import CustomDropdown from './CustomDropdown';
+import CustomDropdown from './ServiceSelector';
 import AboutSelector from './AboutSelector';
+import News from './NewsSelector';
+import Currency from './CurrencySelector';
 
 export default function Header(){
 	        const [selectedService, setSelectedService] = useState("Services");
 	        const [selectedAbout, setSelectedAbout] = useState("About");
+	        const [selectedNews, setSelectedNews] = useState("News");
+	        const [selectedCurrency, setSelectedCurrency] = useState("Currency");
 	        const [selectOpen, setSelectOpen] = useState(false);
 		const [selectedDrop, setSelectedDrop] = useState("all");
     return (
@@ -46,6 +50,8 @@ export default function Header(){
 	<div className={styles.dropdowns}>
 	<CustomDropdown selectedService={selectedService} setSelectedService={setSelectedService} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
 	<AboutSelector selectedAbout={selectedAbout} setSelectedAbout={setSelectedAbout} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
+	<News selectedNews={selectedNews} setSelectedNews={setSelectedNews} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
+	<Currency selectedCurrency={selectedCurrency} setSelectedCurrency={setSelectedCurrency} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
 	</div>
         </>
     )
