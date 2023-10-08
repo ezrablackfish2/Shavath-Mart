@@ -6,6 +6,7 @@ import Products from "../components/Products";
 import data from '../utils/data.json'
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
+import SearchProduct from "../components/SearchProduct";
 
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
             <Header />
             <Hero/>
             <div className="flex justify-center my-10">
-                <Search/>
+                <SearchProduct/>
             </div>
             <div className="flex justify-center mb-28">
                 <Products data={data}/>

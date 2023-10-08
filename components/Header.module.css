@@ -137,9 +137,14 @@
 @media (max-width: 599px) {
 	.header {
 		height: 80px;
+		width: 80%;
 	}
 	.headerphone {
 		left: 40%;
+	}
+	.searchimage {
+		width: 70px;
+		top: -110px;
 	}
 	.headergmail {
 		left: 30%;

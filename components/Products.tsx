@@ -1,8 +1,9 @@
 import Product from "./Product"
+import styles from "./Products.module.css";
 
 export default function Products(props) {
     return (
-        <div className="grid grid-cols-4">
+        <div className={styles.product}>
             {
                 props.data.map((product) => (
                     <Product product={product}/>

@@ -1,0 +1,44 @@
+.products {
+	display: inline-block;
+	position: relative;
+	width: 250px;
+	margin-right: 5%;
+	border-radius: 25px 25px 25px 25px;
+	background-color: #ffbb00;
+}
+
+.products:hover {
+	width: 300px;
+	transition-property: width;
+	transition-duration: 0.5s;
+}
+.product {
+	margin-top: 30px;
+	display: inline-block;
+	position: relative;
+	left: 10%;
+	width: 80%;
+}
+
+.productimage {
+	width: 100%;
+}
+
+.productname {
+	position: relative;
+	justify-content: center;
+	left: 40%;
+	width: 30%;
+}
+
+.productprice {
+	position: relative;
+	justify-content: center;
+	left: 40%;
+}
+
+.productcolor {
+	position: relative;
+	justify-content: center;
+	left: 40%;
+}
