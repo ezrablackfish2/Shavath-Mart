@@ -46,3 +46,21 @@
 	left: 40%;
 	font-family: 'Black Ops One', cursive;
 }
+
+@media (max-width: 900px) {
+	.products {
+		width: 200px;
+	}
+	.products:hover {
+		width: 250px;
+	}
+}
+
+@media (max-width: 770px) {
+	.products {
+		width: 65%;
+	}
+	.products:hover {
+		width: 72%;
+	}
+}

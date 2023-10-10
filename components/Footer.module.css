@@ -1,0 +1,55 @@
+.footertable {
+	position: relative;
+	display: inline-block;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+	left: 35%;
+}
+
+.footerservice {
+	display: inline-block;
+	position: relative;
+	left: 30%;
+	width: 20%;
+	text-align: top;
+	justify-content: top;
+}
+.footerlinks {
+	display: inline-block;
+	position: relative;
+	width: 20%;
+	right: -30%;
+	text-align: top;
+	justify-content: top;
+}
+
+
+.footer {
+
+	position: relative;
+	display: inline-block;
+	color: #FFA818;
+	color: #ffffff;
+	background-color: #2C2E7B;
+	margin-top: 200px;
+	width: 100%;
+
+}
+
+.footerdetail {
+	position: relative;
+	display: inline-block;
+	margin: 10%;
+	width: 70%;
+	font-family: 'Black Ops One';
+}
+
+.footerlogo {
+	position: relative;
+	display: inline-block;
+	width: 15%;
+	float: left;
+	margin: 3%;
+	margin-top: 0%;
+}

@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import SearchProduct from "../components/SearchProduct";
 import Head from "next/head";
+import Bottom from "../components/Bottom";
 
 
 
@@ -28,6 +29,7 @@ export default function Home() {
             <div className="flex justify-center mb-28">
                 <Products data={data}/>
             </div>
+	<Bottom />
             <Footer />
         </>
     )

@@ -158,3 +158,16 @@
 		margin-right: 25px;
 	}
 }
+
+@media (max-width: 435px) {
+	.searchimage {
+		position: relative;
+		top: 0px;
+		width: 60%;
+		right: -180%;
+	}
+	.header {
+		height: 120px;
+		width: 80%;
+	}
+}
