@@ -27,15 +27,15 @@ export default function Footer() {
                 </div>
 
 		<div className={styles.footertable}>
-		<table>
-      <thead>
+		<table className={styles.table}>
+      <thead className={styles.tablehead}>
         <tr>
           <th>Customer Service</th>
           <th>Quick Link</th>
           <th>Contact</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className={styles.tablebody}>
         {data.map((item, index) => (
           <tr key={index}>
             <td>{item.name}</td>

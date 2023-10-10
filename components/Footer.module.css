@@ -1,14 +1,26 @@
+.tablehead {
+	font-family: 'Barrio';
+       font-size: 200%;	
+}
+.tablebody {
+	font-family: 'Black Ops One';
+}
+
+.table {
+	width: 60%;
+}
+
 .footertable {
 	position: relative;
 	display: inline-block;
 	justify-content: center;
 	text-align: center;
-	width: 100%;
-	left: 35%;
+	width: 90%;
+	left: 10%;
 }
 
 .footerservice {
-	display: inline-block;
+	display: none;
 	position: relative;
 	left: 30%;
 	width: 20%;
@@ -16,7 +28,7 @@
 	justify-content: top;
 }
 .footerlinks {
-	display: inline-block;
+	display: none;
 	position: relative;
 	width: 20%;
 	right: -30%;
