@@ -1,0 +1,52 @@
+.detailadd {
+	position: realtive;
+	display: inline-width;
+	margin-top : 5%;
+	text-align: center;
+	justify-content: center;
+	margin-left: 40%;
+}
+
+.detailinfo {
+	position: relative;
+	display: inline-block;
+	width: 50%;
+}
+
+.detailtitle {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	font-family: 'Chakra Petch', sans-serif;
+	text-align: center;
+	font-size: 300%;
+	color: #888888;
+}
+
+.productdetail {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	color: #888888;
+}
+.detailimage {
+	position: relative;
+	display: inline-block;
+	width: 50%;
+	left: 0%;
+}
+.detailprice {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	font-family: 'Gugi', cursive;
+	text-align: center;
+	color: #888888;
+}
+.detailcolor {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	font-family: 'Black Ops One', cursive;
+}

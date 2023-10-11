@@ -42,7 +42,7 @@ export default function Header(){
 	</div>
             </div>
             <div className={styles.navigationbar}>
-		<Link href="">
+		<Link href="/home">
                 <img className={styles.logo} src="/logo.jpg"  />
 		</Link>
                 <Search />
