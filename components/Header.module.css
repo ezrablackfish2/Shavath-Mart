@@ -35,6 +35,15 @@
 	width: 80%;
 	left: 20%;
 }
+.dropdownsfixed {
+	position: fixed;
+	top: 0;
+	left: 20%;
+	width: 80%;
+	color: #000000;
+	z-index: 999;
+	font-weight: 999;
+}
 .header {
 	position: relative;
 	display: inline-block;

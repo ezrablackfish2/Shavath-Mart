@@ -4,11 +4,11 @@ import social_handles from '../utils/socila_handles.json'
 import Link from "next/link";
 import styles from "./Header.module.css";
 import ServiceSelector from "./Services";
-import { useState } from "react";
 import CustomDropdown from './ServiceSelector';
 import AboutSelector from './AboutSelector';
 import News from './NewsSelector';
 import Currency from './CurrencySelector';
+import React, { useState, useEffect } from 'react';
 
 export default function Header(){
 	        const [selectedService, setSelectedService] = useState("Services");
@@ -17,6 +17,22 @@ export default function Header(){
 	        const [selectedCurrency, setSelectedCurrency] = useState("Currency");
 	        const [selectOpen, setSelectOpen] = useState(false);
 		const [selectedDrop, setSelectedDrop] = useState("all");
+		const [isSticky, setIsSticky] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+		const scrollTop = window.scrollY;
+		setIsSticky(scrollTop > 140);
+	};
+
+	window.addEventListener('scroll', handleScroll);
+
+	return () => {
+	window.removeEventListener('scroll', handleScroll);
+	};
+}, []);
+
+
     return (
         <>
             <div className={styles.header}>
@@ -47,7 +63,7 @@ export default function Header(){
 		</Link>
                 <Search />
             </div>
-	<div className={styles.dropdowns}>
+	<div className={!isSticky ? styles.dropdowns : styles.dropdownsfixed}>
 	<CustomDropdown selectedService={selectedService} setSelectedService={setSelectedService} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
 	<AboutSelector selectedAbout={selectedAbout} setSelectedAbout={setSelectedAbout} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
 	<News selectedNews={selectedNews} setSelectedNews={setSelectedNews} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
