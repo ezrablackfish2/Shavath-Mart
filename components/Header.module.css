@@ -137,6 +137,9 @@
 	.dropdowns {
 		display: none;
 	}
+	.dropdownsfixed {
+		display: none;
+	}
 }
 
 @media (max-width: 856px) {
