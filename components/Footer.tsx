@@ -9,10 +9,6 @@ export default function Footer() {
 
 	  const initialData = [
     { name: 'Customer Service 1', quickLink: 'Link 1', contact: 'Contact 1' },
-    { name: 'Customer Service 2', quickLink: 'Link 2', contact: 'Contact 2' },
-    { name: 'Customer Service 3', quickLink: 'Link 3', contact: 'Contact 3' },
-    { name: 'Customer Service 4', quickLink: 'Link 4', contact: 'Contact 4' },
-    { name: 'Customer Service 5', quickLink: 'Link 5', contact: 'Contact 5' },
   ];
 
 
@@ -40,7 +36,13 @@ export default function Footer() {
           <tr key={index}>
             <td>{item.name}</td>
             <td>{item.quickLink}</td>
-            <td>{item.contact}</td>
+            <td>{social_handles.map(({name, icon, link})=> (
+                        <div className="flex my-2">
+                            <img className={styles.footerimage} src={icon} />
+                            <Link className="ml-2 text-white" href={link}>{name}</Link>
+                        </div>
+                    ))}
+	    </td>
           </tr>
         ))}
       </tbody>

@@ -1,0 +1,11 @@
+.reviewall {
+	position: absolute;
+	font-family: Lato Hairline;
+	font-family: 'Bellota', cursive;
+}
+.reviewbutton {
+	background-color: #ffffff;
+	width: 100%;
+	padding: 5px 10px 5px 10px;
+	border-radius: 10px 10px 10px 10px;
+}

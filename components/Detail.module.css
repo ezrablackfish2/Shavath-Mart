@@ -1,10 +1,68 @@
+.detailreviewcontent {
+	font-family: 'Gugi', cursive;
+}
+
+.detailreviewtitle {
+	font-family: 'Black Ops One', cursive;
+	font-size: 200%;
+}
+
+.detailreview {
+	position: relative;
+	display: inline-block;
+	width: 90%;
+	margin: 5%;
+	color: #2C2E7B;
+}
+
+
+.review {
+	margin-top: 70px;
+	position: relative;
+	display: inline-block;
+	left: 40%;
+	color: #049303;
+	font-family: 'Itim';
+	font-size: 300%;
+}
+
+.detaildescribeone {
+	position: relative;
+	display: block;
+	font-family: 'Space Mono';
+	font-size: 60%;
+	left: 5%;
+}
+
+.detaildescription {
+	font-size: 150%;
+	font-family: 'Tilt Prism';
+	position: relative;
+	display: inline-block;
+	justify-content: center;
+	left: 15%;
+	width: 50%;
+	color: #4444ff;
+	
+}
+
 .detailadd {
-	position: realtive;
-	display: inline-width;
+	position: relative;
+	display: inline-block;
 	margin-top : 5%;
 	text-align: center;
 	justify-content: center;
 	margin-left: 40%;
+	padding: 10px;
+	background-color: #2C2E7B;
+	color: #ffffff;
+	border-radius: 25px 25px 25px 25px;
+	font-family: 'Bellota';
+}
+.detailadd:hover {
+	background-color: #FFA818;
+	transition-property: background-color;
+	transition-duration: 0.4s;
 }
 
 .detailinfo {
@@ -20,7 +78,7 @@
 	font-family: 'Chakra Petch', sans-serif;
 	text-align: center;
 	font-size: 300%;
-	color: #888888;
+	color: #222222;
 }
 
 .productdetail {
@@ -37,16 +95,30 @@
 }
 .detailprice {
 	position: relative;
-	display: inline-block;
-	width: 100%;
+	display: block;
 	font-family: 'Gugi', cursive;
-	text-align: center;
-	color: #888888;
+	font-family: 'Space Mono';
+	left: 15%;
+	width: 50%;
+	color: #ff8888;
+	color: #4444ff;
 }
 .detailcolor {
 	position: relative;
-	display: inline-block;
-	width: 100%;
-	text-align: center;
+	display: block;
+	left: 15%;
+	width: 50%;
 	font-family: 'Black Ops One', cursive;
+	font-family: 'Space Mono';
+	color: #88ff88;
+	color: #4444ff;
+}
+
+@media (max-width: 765px) {
+	.detailinfo {
+		width: 100%;
+	}
+	.detailimage {
+		width: 100%;
+	}
 }

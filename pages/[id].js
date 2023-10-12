@@ -16,7 +16,8 @@ import styles from "../components/Detail.module.css";
 
 
 const ItemDetail = ({ item }) => {
-  const router = useRouter();
+	const router = useRouter();
+	const description = ["wide", "cotton-made", "weight very light not less than 250g", "tight on the shoulders", "high quality ester", "all sizes L to XXL"]
 
   if (router.isFallback) {
     return <div>Please Wait Loading</div>;
@@ -33,11 +34,24 @@ const ItemDetail = ({ item }) => {
 	  	<img className={styles.detailimage} src={item.image} alt={item.name} />
 		<div className={styles.detailinfo}>
 		<h1 className={styles.detailtitle}>{item.name}</h1>
+	  	<ul className={styles.detaildescription}> Description
+		{description.map(item => <li className={styles.detaildescribeone}>{item}</li>)}
+	  	</ul>
 		<p className={styles.detailcolor}>Color: {item.color}</p>
 		<p className={styles.detailprice}>Price: {item.price}</p>
 
 	  	<button className={styles.detailadd}>Add to Cart </button>
 	  	</div>
+	  	<div className={styles.detailreview}>
+	  	<h1 className={styles.detailreviewtitle}>Review</h1>
+	  	<p className={styles.detailreviewcontent}>
+	  	There are no reviews yet.
+		Be the first to review {item.name} Your email address will not be published. Required fields are marked *
+	  	</p>
+	  	</div>
+	  	<Link href={`/review/${item.id}`}>
+        		<div className={styles.review}> Add Review </div>
+      		</Link>
 
 	  	<Footer />
 

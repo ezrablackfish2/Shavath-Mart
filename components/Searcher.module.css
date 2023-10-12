@@ -1,0 +1,38 @@
+.searchtitle {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	font-family: 'Cookie';
+	text-align: center;
+	margin-top: 15px;
+	font-size: 400%;
+}
+
+.searchproducttitle {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	font-family: 'Cookie';
+	text-align: center;
+	margin-top: 15px;
+	font-size: 400%;
+}
+
+
+.Search {
+	position: relative;
+	display: inline-block;
+	width: 80%;
+	margin: 10%;
+}
+
+.searchbar {
+	width: 70%;
+}
+
+.searchimage {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	top: 15px;
+}
