@@ -13,11 +13,19 @@ import Head from "next/head";
 import Bottom from "../components/Bottom";
 import Link from 'next/link';
 import styles from "../components/Detail.module.css";
+import style from "../components/Review.module.css";
 
 
 const ItemDetail = ({ item }) => {
 	const router = useRouter();
 	const description = ["wide", "cotton-made", "weight very light not less than 250g", "tight on the shoulders", "high quality ester", "all sizes L to XXL"]
+const [review, setReview] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
+
+
 
   if (router.isFallback) {
     return <div>Please Wait Loading</div>;
@@ -49,9 +57,22 @@ const ItemDetail = ({ item }) => {
 		Be the first to review {item.name} Your email address will not be published. Required fields are marked *
 	  	</p>
 	  	</div>
-	  	<Link href={`/review/${item.id}`}>
-        		<div className={styles.review}> Add Review </div>
-      		</Link>
+        	<div className={styles.review}> Add Review </div>
+	  	<div className={style.reviewall}>
+                <h2 className={style.detailreviewtitle}>Your Review</h2>
+                <form onSubmit={handleSubmit}>
+                    <textarea
+	  		className={style.area}
+                        value={review}
+                        onChange={(e) => setReview(e.target.value)}
+                        placeholder="Write your review here"
+                        required
+                    />
+                    <div>
+                        <button className={style.reviewbutton} type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
 
 	  	<Footer />
 

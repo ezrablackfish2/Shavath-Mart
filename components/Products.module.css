@@ -1,3 +1,24 @@
+.detailadd {
+        position: relative;
+        display: inline-block;
+        margin-top : 0%;
+        text-align: center;
+        justify-content: center;
+        margin-left: 30%;
+        padding: 10px;
+        background-color: #2C2E7B;
+        color: #ffffff;
+        border-radius: 25px 25px 25px 25px;
+        font-family: 'Bellota';
+}
+
+.detailadd:hover {
+        background-color: #a818FF;
+        transition-property: background-color;
+        transition-duration: 0.4s;
+}
+
+
 .products {
 	display: inline-block;
 	position: relative;

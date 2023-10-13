@@ -11,6 +11,7 @@ export default function Product(props) {
             <p className={styles.productname}>{props.product.name}</p>
             <p className={styles.productprice}>{props.product.price}</p>
             <p className={styles.productcolor}>{props.product.color}</p>
+	    <button className={styles.detailadd}>Add to Cart </button>
 	</Link>
         </div>
     )
