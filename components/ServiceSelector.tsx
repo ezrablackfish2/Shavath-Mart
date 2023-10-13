@@ -20,8 +20,9 @@ function CustomDropdown ( {setSelectedService, selectedService, selectedDrop, se
 	};
 
 	const handleMouseLeave = () => {
-		setIsOpen(false);
-		setSelectedDrop("all");
+                setIsOpen(false);
+                setSelectedDrop("all");
+
 	};
 
   return (

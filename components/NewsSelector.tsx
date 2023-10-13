@@ -20,18 +20,19 @@ function News ( {setSelectedNews, selectedNews, selectedDrop, setSelectedDrop} :
 	};
 
 	const handleMouseLeave = () => {
-		setIsOpen(false);
-		setSelectedDrop("all");
+                setIsOpen(false);
+                setSelectedDrop("all");
+
 	};
 
   return (
-    <div className={isOpen ? styles.dropdownopen : styles.dropdown} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={isOpen ? styles.dropdownopen2 : styles.dropdown2} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
            <div className={(selectedDrop === "News" || selectedDrop === "all") ? ( isOpen ? styles.select3open : styles.select ) : (styles.hiddenword)} onClick={toggleDropdown}>
         <div className={styles.selectorword}>{selectedNews}</div> <div className={styles.imagebox}><img src="/dropdown.png" className={styles.dropdownarrow} /></div>
       </div>
-      <div className={styles.options}>
+      <div className={styles.options2}>
 		{news.map((option, index) => (
-                                <div className={styles.option} onClick={() => setSelectedNews(option)}>
+                                <div className={styles.option2} onClick={() => setSelectedNews(option)}>
                                 {option}
                                 </div>
                         ))}

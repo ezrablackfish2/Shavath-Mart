@@ -50,16 +50,18 @@
 }
 
 .options2 {
-  position: absolute;
-  top: -15px;
+  position: relative;
+  top: -35px;
   left: -200;
   right: 200px;
+  height: 300px;
   display: none;
   background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
   z-index: 1;
-	height: 210px;
+	transition-property: display;
+        transition-duration: 0.2s;
 }
 
 .dropdownopen2 .options2 {
@@ -67,6 +69,8 @@
 	position: relative;
 	display: inline-block;
 	width: 80%;
+	transition-property: display;
+	transition-duration: 0.2s;
 }
 
 .option2 {
@@ -113,16 +117,19 @@
 }
 
 .options {
-  position: absolute;
-  top: -10px;
+  position: relative;
+  top: -15px;
   left: -200;
   right: 200px;
+  height: 300px;
   bottom: 0;
   display: none;
   background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
   z-index: 1;
+  transition-property: display;
+  transition-duration: 0.2s;
 }
 
 .dropdownopen .options {
@@ -130,6 +137,8 @@
 	position: relative;
 	display: inline-block;
 	width: 80%;
+	transition-property: display;
+        transition-duration: 0.2s;
 }
 
 .option {

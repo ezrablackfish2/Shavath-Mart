@@ -20,18 +20,19 @@ function Currency ( {setSelectedCurrency, selectedCurrency, selectedDrop, setSel
 	};
 
 	const handleMouseLeave = () => {
-		setIsOpen(false);
-		setSelectedDrop("all");
+                setIsOpen(false);
+                setSelectedDrop("all");
+
 	};
 
   return (
-    <div className={isOpen ? styles.dropdownopen : styles.dropdown} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={isOpen ? styles.dropdownopen2 : styles.dropdown2} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
            <div className={(selectedDrop === "Currency" || selectedDrop === "all") ? ( isOpen ? styles.select4open : styles.select ) : (styles.hiddenword)} onClick={toggleDropdown}>
         <div className={styles.selectorword}>{selectedCurrency}</div> <div className={styles.imagebox}><img src="/dropdown.png" className={styles.dropdownarrow} /></div>
       </div>
-      <div className={styles.options}>
+      <div className={styles.options2}>
 		{currency.map((option, index) => (
-                                <div className={styles.option} onClick={() => setSelectedCurrency(option)}>
+                                <div className={styles.option2} onClick={() => setSelectedCurrency(option)}>
                                 {option}
                                 </div>
                         ))}
