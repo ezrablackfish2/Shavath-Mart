@@ -32,3 +32,8 @@
 	color: #ff18a8;
 	color: #049303;
 }
+@media (max-width: 435px) {
+	.reviewbutton {
+		width: 70px;
+	}
+}

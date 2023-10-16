@@ -140,4 +140,7 @@
 		margin-left: -350%;
 		text-align: left;
 	}
+	.reviewbutton {
+		width: 70px;
+	}
 }
