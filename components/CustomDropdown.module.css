@@ -1,5 +1,6 @@
 .dropsItems:hover {
 	background-color: #ffffff;
+	border-radius: 5px 5px 5px 5px;
 }
 
 .sorter {
