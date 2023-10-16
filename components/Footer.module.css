@@ -74,3 +74,9 @@
 	margin: 3%;
 	margin-top: 0%;
 }
+
+@media (max-width: 435px) {
+	.footertable {
+		display: none;
+	}
+}

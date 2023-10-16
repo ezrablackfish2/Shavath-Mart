@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styles from './CustomDropdown.module.css';
 
 interface Props {
-	setSelectedNews: (sort: sort) => void;
+	setSelectedNews: (selected: string) => void;
 	selectedNews: string;
 	selectedDrop: string;
-	setSelectedDrop: () => void;
+	setSelectedDrop: (selected: string) => void;
 }
 
 function News ( {setSelectedNews, selectedNews, selectedDrop, setSelectedDrop} : Props) {

@@ -47,27 +47,10 @@ export default function Footer() {
         ))}
       </tbody>
     </table>
-		</div>	
-
+		</div>
+	</div>	
+	</div>
 
 	
-                <div className={styles.footerservice}>
-                    <div className={styles.footerservicetitle}> Customer Service</div>
-		<ul> 
-		<li>Payment Method</li>
-</ul>
-                </div>
-                <div className={styles.footerlinks}>
-                    <Text className="font-bold text-white text-xl" text="Contact Us" />
-                    {social_handles.map(({name, icon, link})=> (
-                        <div className="flex my-2">
-                            <Image height={10} width={20} src={icon} />
-                            <Link className="ml-2 text-white" href={link}>{name}</Link>
-                        </div>
-                    ))}
-                    <Text className="text-white" text="This is footer" />
-                </div>
-            </div>
-        </div>
     )
 }

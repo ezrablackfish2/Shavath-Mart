@@ -2,7 +2,16 @@ import Image from "next/image";
 import styles from "./Products.module.css";
 import Link from 'next/link'
 
-export default function Product(props) {
+type ProductProps = {
+	product : {
+	id : number;
+	name : string;
+	price : string;
+	color : string;
+	image : string;
+	};
+};
+export default function Product(props: ProductProps) {
     return (
         <div
             className={styles.products}>

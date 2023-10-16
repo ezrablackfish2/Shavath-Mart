@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styles from './CustomDropdown.module.css';
 
 interface Props {
-	setSelectedCurrency: (sort: sort) => void;
+	setSelectedCurrency: (selected: string) => void;
 	selectedCurrency: string;
 	selectedDrop: string;
-	setSelectedDrop: () => void;
+	setSelectedDrop: any;
 }
 
 function Currency ( {setSelectedCurrency, selectedCurrency, selectedDrop, setSelectedDrop} : Props) {

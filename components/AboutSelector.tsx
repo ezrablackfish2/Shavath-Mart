@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import styles from './CustomDropdown.module.css';
 
 interface Props {
-	setSelectedAbout: (sort: sort) => void;
+	setSelectedAbout: (selected: string) => void;
 	selectedAbout: string;
+	selectedDrop: string;
+	setSelectedDrop: (selected: string) => void;
 }
 
 function AboutSelector ( {setSelectedAbout, selectedAbout, selectedDrop, setSelectedDrop} : Props) {

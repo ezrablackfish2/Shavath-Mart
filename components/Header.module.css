@@ -185,15 +185,51 @@
 	}
 }
 
-@media (max-width: 435px) {
+@media (max-width: 448px) {
 	.searchimage {
-		position: relative;
-		top: 0px;
-		width: 60%;
-		right: -180%;
+		top: -250px;
+		right: -57%;
+		width: 20%;
+		z-index: 999;
 	}
 	.header {
+		left: 0px;
 		height: 120px;
 		width: 80%;
+	}
+	.headergmail {
+		left: 30%;
+	}
+	.headermedia {
+		display: inline-block;
+	}
+	.headerphone {
+		display: inline-block;
+	}
+	.headerimages {
+		position: relative;
+		display: inline-block;
+		left: 40%;
+		margin-right: 5px;
+	}
+	.headergmailimage {
+		margin-right: 0px;
+		width: 15px;
+	}
+	.headerphoneimage {
+		margin-right: 0px;
+	}
+	.headerphone {
+		margin-right: 0px;
+	}
+	.headerimages {
+		right: 0px;
+	}
+	.headeritems {
+		margin-right: 0px;
+	}
+	.logo {
+		left: 15%;
+		width: 150px;
 	}
 }

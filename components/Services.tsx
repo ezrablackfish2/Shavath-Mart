@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 
 interface Props {
-	setSelectedService: (sort: sort) => void;
+	setSelectedService: (selected: string) => void;
 	selectedService: string;
 }
 
 function ServiceSelector( {setSelectedService, selectedService} : Props) {
 	const sorts = ["Cloth", "Shoes", "Electronic Devices", "Books", "Entertainment", "Automobiles"]
-	function handleOptionChange(event) {
+	function handleOptionChange(event: React.ChangeEvent<HTMLSelectElement>) {
                 setSelectedService(event.target.value);
         };
 	return (

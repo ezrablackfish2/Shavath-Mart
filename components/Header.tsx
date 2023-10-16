@@ -45,7 +45,7 @@ export default function Header(){
 	<div className={styles.headergmail}>
 	<Link href="">
 	<img className={styles.headergmailimage} src={"/gmail.png"} />
-	example@gmail.com
+	shavath@gmail
 	</Link>
 	</div>
 	<div className={styles.headermedia}>
