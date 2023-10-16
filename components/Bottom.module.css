@@ -59,3 +59,8 @@
 		margin-left: 35%;
 	}
 }
+@media (max-width: 435px) {
+	.bottombutton {
+		width: 70px;
+	}
+}

@@ -85,3 +85,40 @@
 		width: 72%;
 	}
 }
+@media (max-width: 370px) {
+	.productname {
+		left: 25%;
+	}
+	.productprice {
+		left: 25%;
+	}
+	.productcolor {
+		left: 25%;
+	}
+	.detailadd {
+		margin-left: 20%;
+	}
+}
+@media (max-width: 279px) {
+	.productname {
+		left: 20%;
+	}
+	.productprice {
+		left: 20%;
+	}
+	.productcolor {
+		left: 20%;
+	}
+	.detailadd {
+		margin-left: 20%;
+	}
+
+	.detailadd {
+		margin-left: 10%;
+	}
+}
+@media (max-width: 235px) {
+	.detailadd {
+		margin-left: 5%;
+	}
+}

@@ -233,3 +233,11 @@
 		width: 150px;
 	}
 }
+@media (max-width: 270px) {
+	.headergmailimage {
+		display: none;
+	}
+	.logo {
+		left: 0%;
+	}
+}

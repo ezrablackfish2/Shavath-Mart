@@ -123,3 +123,21 @@
 		width: 100%;
 	}
 }
+@media (max-width: 448px) {
+	.detailadd {
+		margin-left: 30%;
+	}
+	.review {
+		left: 30%;
+	}
+	.detailreview {
+		margin: 0%;
+		left: 0%;
+	}
+	.detailreviewtitle {
+		position: relative;
+		display: inline-block;
+		margin-left: -350%;
+		text-align: left;
+	}
+}

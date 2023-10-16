@@ -24,8 +24,8 @@
 	display: inline-block;
 	justify-content: center;
 	text-align: center;
-	width: 90%;
-	left: 10%;
+	width: 75%;
+	left: 25%;
 }
 
 .footerservice {
@@ -74,9 +74,22 @@
 	margin: 3%;
 	margin-top: 0%;
 }
+@media (max-width: 616px) {
+	.footertable {
+		left: 10%
+	}
+}
+@media (max-width: 480px) {
+	.footertable {
+		left: 5%;
+	}
+}
 
 @media (max-width: 435px) {
 	.footertable {
 		display: none;
+	}
+	.footerlogo {
+		width: 70px;
 	}
 }
