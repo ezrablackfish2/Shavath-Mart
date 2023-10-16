@@ -3,11 +3,11 @@ import Search from "./Search";
 import social_handles from '../utils/socila_handles.json'
 import Link from "next/link";
 import styles from "./Header.module.css";
-import ServiceSelector from "./Services";
-import CustomDropdown from './ServiceSelector';
-import AboutSelector from './AboutSelector';
-import News from './NewsSelector';
-import Currency from './CurrencySelector';
+import ServiceSelector from "./ServiceSelector2";
+import CustomDropdown from './ServiceSelector2';
+import AboutSelector from './AboutSelector2';
+import News from './NewsSelector2';
+import Currency from './CurrencySelector2';
 import React, { useState, useEffect } from 'react';
 
 export default function Header(){
@@ -64,10 +64,10 @@ export default function Header(){
                 <Search />
             </div>
 	<div className={!isSticky ? styles.dropdowns : styles.dropdownsfixed}>
-	<CustomDropdown selectedService={selectedService} setSelectedService={setSelectedService} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
-	<AboutSelector selectedAbout={selectedAbout} setSelectedAbout={setSelectedAbout} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
-	<News selectedNews={selectedNews} setSelectedNews={setSelectedNews} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
-	<Currency selectedCurrency={selectedCurrency} setSelectedCurrency={setSelectedCurrency} selectedDrop={selectedDrop} setSelectedDrop={setSelectedDrop}/>	
+	<ServiceSelector selectedService={selectedService} setSelectedService={setSelectedService} />	
+	<AboutSelector selectedAbout={selectedAbout} setSelectedAbout={setSelectedAbout} />	
+	<News selectedNews={selectedNews} setSelectedNews={setSelectedNews} />	
+	<Currency selectedCurrency={selectedCurrency} setSelectedCurrency={setSelectedCurrency} />	
 	</div>
         </>
     )

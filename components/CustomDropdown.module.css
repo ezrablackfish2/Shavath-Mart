@@ -1,3 +1,29 @@
+.dropsItems:hover {
+	background-color: #ffffff;
+}
+
+.sorter {
+	cursor: pointer;
+        background-color: #FFA922;
+        border-radius: 5px 5px 5px 5px;
+
+}
+.drops {
+	position: absolute;
+	width: 90%;
+	background-color: #FFA922;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.sortall {
+	position: relative;
+	display: inline-block;
+	font-family: 'Bellota', cursive;
+	padding: 10px;
+	cursor: pointer;
+	z-index: 999;
+}
+
 .select4open {
 	top: -20px;
 	position: relative;
