@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import styles from "./CustomDropdown.module.css";
 
 interface Props {
@@ -10,7 +10,7 @@ function NewsSelector({ setSelectedNews, selectedNews }: Props) {
         const news = ["Latest", "Sales and promotions", "Shipping and returns", "Books", "Customer service", "Company news"]  
 	const [isHovered, setIsHovered] = useState(false);
 
-  function handleOptionChange(event) {
+  function handleOptionChange(event: ChangeEvent<HTMLSelectElement>) {
     setSelectedNews(event.target.value);
   }
 

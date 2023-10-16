@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import styles from "./CustomDropdown.module.css";
 
 interface Props {
@@ -10,7 +10,7 @@ function CurrencySelector({ setSelectedCurrency, selectedCurrency }: Props) {
 	const currency = ["ethiopia", "america", "british", "china", "Saudi Arabia", "india"]
 	const [isHovered, setIsHovered] = useState(false);
 
-  function handleOptionChange(event) {
+  function handleOptionChange(event: ChangeEvent<HTMLSelectElement>) {
     setSelectedCurrency(event.target.value);
   }
 

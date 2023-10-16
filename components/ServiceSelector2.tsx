@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import styles from "./CustomDropdown.module.css";
 
 interface Props {
@@ -10,7 +10,7 @@ function ServiceSelector({ setSelectedService, selectedService }: Props) {
   const services = ["Cloth", "Shoes", "Electronic Devices", "Books", "Entertainment", "Automobiles"];
   const [isHovered, setIsHovered] = useState(false);
 
-  function handleOptionChange(event) {
+  function handleOptionChange(event: ChangeEvent<HTMLSelectElement>) {
     setSelectedService(event.target.value);
   }
 
