@@ -254,9 +254,9 @@
 		top: -120px;
 	}
 }
-@media (max-width: 217px) {
+@media (max-width: 232px) {
 	.searchimage {
 		right: -50%;
-		top: -150px;
+		top: -160px;
 	}
 }
