@@ -164,13 +164,17 @@
 	.header {
 		height: 80px;
 		width: 80%;
+		border-radius: 10px 10px 10px 10px;
+		margin-right: 0px;
 	}
 	.headerphone {
 		left: 40%;
 	}
 	.searchimage {
 		width: 70px;
-		top: -110px;
+		top: -90px;
+		right: -14%;
+		margin-left: 0px;
 	}
 	.headergmail {
 		left: 30%;
@@ -183,19 +187,25 @@
 	.headerimages {
 		margin-right: 25px;
 	}
+	.logo {
+		left: 2%;
+		top: -70px;
+		width: 50px;
+		border-radius: 75%;
+	}
 }
 
 @media (max-width: 448px) {
 	.searchimage {
-		top: -250px;
-		right: -57%;
+		top: -120px;
+		right: 0%;
 		width: 20%;
 		z-index: 999;
 	}
 	.header {
 		left: 0px;
 		height: 120px;
-		width: 80%;
+		width: 100%;
 	}
 	.headergmail {
 		left: 30%;
@@ -229,8 +239,7 @@
 		margin-right: 0px;
 	}
 	.logo {
-		left: 15%;
-		width: 150px;
+		top: -100px;
 	}
 }
 @media (max-width: 270px) {
@@ -239,5 +248,15 @@
 	}
 	.logo {
 		left: 0%;
+	}
+	.searchimage {
+		right: -2%;
+		top: -120px;
+	}
+}
+@media (max-width: 217px) {
+	.searchimage {
+		right: -50%;
+		top: -150px;
 	}
 }
