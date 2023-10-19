@@ -9,7 +9,7 @@ import "../app/globals.css"
 
 
 const Upload = () => {
-  const handleUpload = async (formData) => {
+  const handleUpload = async (formData: FormData) => {
     try {
       const response = await uploadImage(formData);
       console.log('Image uploaded successfully:', response.data);

@@ -9,8 +9,8 @@
 
 .uploadbutton {
 	position: relative;
-	background-color: #14a800;
 	background-color: #108a00;
+	color: #ffffff;
 	display: block;
 	width: 75px;
 	padding: 10px;
@@ -18,7 +18,7 @@
 	border-radius: 15px 15px 15px 15px;
 }
 .uploadbutton:hover {
-	background-color: #108a00;
+	background-color: #14a800;
 	color: #ffffff;
 }
 
