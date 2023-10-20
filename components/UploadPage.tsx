@@ -5,7 +5,7 @@ import "../app/globals.css";
 import styles from '../components/Upload.module.css';
 
 
-const UploadPage: React.FC = () => {
+const UploadPage: React.FC = ( {user, token}) => {
   const handleUpload = async (formData: FormData) => {
     try {
       const response = await uploadData(formData);
@@ -18,7 +18,7 @@ const UploadPage: React.FC = () => {
   return (
     <div className={styles.uploadbody}>
       <h1 className={styles.uploadtitle}>Upload Data</h1>
-      <UploadForm onUpload={handleUpload} />
+      <UploadForm user={user} token={token} onUpload={handleUpload} />
     </div>
   );
 };
