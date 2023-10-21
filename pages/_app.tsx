@@ -31,22 +31,23 @@ function App({ Component, pageProps }) {
   const [watchlist, setWatchlist] = useState(false);
   const [remover, setRemover] = useState(true);
   const [shower, setShower] = useState(false);
-  useEffect(() => {
+	useEffect(() => {
+    if (typeof localStorage !== 'undefined') {
+   	 const storedToken = localStorage.getItem("token");
+    	const storedUser = localStorage.getItem("user");
+    	const storedIsAuthenticated = localStorage.getItem('token') !== null;
 
-    const storedToken = localStorage.getItem("token");
-    const storedUser = localStorage.getItem("user");
-    const storedIsAuthenticated = localStorage.getItem('token') !== null;
-
-    if (storedToken) setToken(storedToken);
-    if (storedUser) setUser(storedUser);
-    setIsAuthenticated(storedIsAuthenticated);
-  }, []);
+    	if (storedToken) setToken(storedToken);
+    	if (storedUser) setUser(storedUser);
+    	setIsAuthenticated(storedIsAuthenticated);
+	}
+	}, []);
 
 
 
 return (
         <>
-	<Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin}/>
+	<Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser}/>
         </>
 );
 }

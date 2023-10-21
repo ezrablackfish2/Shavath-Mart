@@ -10,7 +10,7 @@ import News from './NewsSelector2';
 import Currency from './CurrencySelector2';
 import React, { useState, useEffect } from 'react';
 
-export default function Header(){
+export default function Header( { setlogin, setSuccess }){
 	        const [selectedService, setSelectedService] = useState("Services");
 	        const [selectedAbout, setSelectedAbout] = useState("About");
 	        const [selectedNews, setSelectedNews] = useState("News");
@@ -32,21 +32,26 @@ export default function Header(){
 	};
 }, []);
 
+		function remover() {
+		localStorage.removeItem("user");
+		localStorage.removeItem("token");
+	}
+
 
     return (
         <>
             <div className={styles.header}>
 	<div className={styles.headerphone}>
-	<Link href="">
+	<Link href="/login">
 	<img className={styles.headerphoneimage} src={"/phone.png"} />
 	7944
 	</Link>
 	</div>
 	<div className={styles.headergmail}>
-	<Link href="">
+	<button onClick={remover}>
 	<img className={styles.headergmailimage} src={"/gmail.png"} />
 	shavath@gmail
-	</Link>
+	</button>
 	</div>
 	<div className={styles.headermedia}>
                 {social_handles.map(({icon, link})=> (

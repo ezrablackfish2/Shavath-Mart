@@ -20,20 +20,20 @@ function Login( {user, token, formData, setFormData, loggedin, setlogin} : Props
 
 	const [errMsg, setErrMsg] = useState("");
 	const [success, setSuccess] = useState(false);
-	  const navigate = (route) => {
-    router.push(route);
-  };
+	const router = useRouter();
+	const navigate = (route) => {
+		router.push(route);
+	};
 	
-
 	useEffect(() => {
-		if (user) {
+		if (user && token) {
 		setSuccess(true);
 		setlogin(true);
-		navigate("/");
+		navigate("/home");
 	}
 
 		userRef.current.focus();
-	}, [])
+	}, [user, token])
 	useEffect(() => {
 		setErrMsg("")
 	}, [formData.username, formData.password])
@@ -49,15 +49,15 @@ function Login( {user, token, formData, setFormData, loggedin, setlogin} : Props
     		e.preventDefault();
 
 		try {
-			const response = await axios.post('https://imdb-top-60-video-games-ezra.onrender.com/dj-rest-auth/login/', formData);
-			const token = response?.data?.key
-			console.log(token)
-			console.log(formData.username)
-			console.log(formData.password)
+			const response = await axios.post('http://localhost:3000/api/auth/login', formData);
+			console.log(response);
+			const token = response?.data?.user?.password;
+			console.log(token);
+			console.log(formData.username);
+			console.log(formData.password);
 			const user = formData.username;
 			const pwd = formData.password
 			console.log('Login successful:', response.data);
-			setAuth({ user, pwd, token});
 			localStorage.setItem("user", user)
 			localStorage.setItem("token", token);
 			setSuccess(true);
