@@ -47,7 +47,7 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
       <div className={styles.header}>
         <div className={styles.headerphone}>
           <Link href="/login">
-            <Image
+            <img
               className={styles.headerphoneimage}
               src={"/phone.png"}
               alt="Phone Image"
@@ -57,7 +57,7 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
         </div>
         <div className={styles.headergmail}>
           <button onClick={remover}>
-            <Image
+            <img
               className={styles.headergmailimage}
               src={"/gmail.png"}
               alt="Gmail Image"
@@ -69,7 +69,7 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
           {social_handles.map(({ icon, link }) => (
             <div className={styles.headeritems} key={link}>
               <Link className={styles.headerlink} href={link}>
-                <Image
+                <img
                   className={styles.headerimages}
                   src={icon}
                   alt="Social Media Image"
@@ -81,7 +81,7 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
       </div>
       <div className={styles.navigationbar}>
         <Link href="/home">
-          <Image className={styles.logo} src="/logo.jpg" alt="Logo Image" />
+          <img className={styles.logo} src="/logo.jpg" alt="Logo Image" />
         </Link>
         <Search />
       </div>
