@@ -12,8 +12,15 @@ import Bottom from "../components/Bottom";
 import Link from 'next/link';
 import styles from "../components/Searcher.module.css";
 
-
-export default function Searcher() {
+interface SearchProps {
+  shower: any; // Change 'any' to the specific type you're using
+  remover: any; // Change 'any' to the specific type you're using
+  user: any; 
+  token: any; 
+  setlogin: any;
+  setSuccess: any;
+}
+export default function Searcher( {setSuccess, setlogin}: SearchProps) {
 	
     return (
         <>
@@ -21,7 +28,7 @@ export default function Searcher() {
 	<title>Search</title>
 	</Head>
 	<link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Aguafina+Script&family=Amatic+SC&family=Barrio&family=Bellota:wght@300&family=Black+Ops+One&family=Caveat&family=Chakra+Petch:ital,wght@1,300&family=Cinzel&family=Cookie&family=Croissant+One&family=Dancing+Script&family=Faster+One&family=Fuggles&family=Gugi&family=Hammersmith+One&family=Homemade+Apple&family=Itim&family=Lilita+One&family=Montserrat+Alternates:wght@100&family=Nothing+You+Could+Do&family=Orbitron&family=Playball&family=Rajdhani&family=Satisfy&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&family=Space+Mono&family=Tilt+Prism&family=Yellowtail&display=swap" rel="stylesheet" />
-            <Header />
+            <Header setSuccess={setSuccess} setlogin={setlogin}/>
 		<h1 className={styles.searchtitle}>Search</h1>
 		<SearchWhole />
 		<h1 className={styles.searchproducttitle}>Search Products</h1>

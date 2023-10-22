@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import UploadForm from './UploadForm';
 import { uploadData } from './api';
 import "../app/globals.css";
 import styles from '../components/Upload.module.css';
 
+interface UploadPageProps {
+  user: any;
+  token: string;
+}
 
-const UploadPage: React.FC = ( {user, token}) => {
+const UploadPage: FC<UploadPageProps> = ({ user, token }) => {
   const handleUpload = async (formData: FormData) => {
     try {
-      const response = await uploadData(formData);
+      const response = await uploadData(formData, token);
       console.log('Upload successful!', response);
     } catch (error) {
       console.error('Upload failed:', error);

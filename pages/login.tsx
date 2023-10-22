@@ -1,139 +1,167 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
-import axios from 'axios';
-import AuthContext from "../context/AuthProvider.tsx";
+import axios, { AxiosResponse, AxiosError } from 'axios'; // Import AxiosResponse and AxiosError
+import AuthContext from '../context/AuthProvider';
 import { useRouter } from 'next/router';
-import styles from "../components/Login.module.css";
+import styles from '../components/Signup.module.css';
+import '../app/globals.css';
+import Header from '../components/Header';
+import Head from 'next/head';
 
 interface Props {
-	user: string;
-	token: string;
-	formData: {};
-	setFormData: () => void;
-	loggedin: boolean;
-	setlogin: () => void;
+  user: string;
+  token: string;
+  formData: {
+    username: string;
+    password: string;
+  };
+  setFormData: any;
+  loggedin: boolean;
+  setlogin: React.Dispatch<React.SetStateAction<boolean>>;
+  response: any;
 }
 
-function Login( {user, token, formData, setFormData, loggedin, setlogin} : Props) {
-	const { setAuth } = useContext(AuthContext);
-	const userRef = useRef();
-	const errRef = useRef();
+function Login({ user, token, formData, setFormData, loggedin, setlogin, response }: Props) {
+  const { setAuth } = useContext(AuthContext);
+  const userRef = useRef<HTMLInputElement>(null);
+  const errRef = useRef<HTMLParagraphElement>(null);
 
-	const [errMsg, setErrMsg] = useState("");
-	const [success, setSuccess] = useState(false);
-	const router = useRouter();
-	const navigate = (route) => {
-		router.push(route);
-	};
-	
-	useEffect(() => {
-		if (user && token) {
-		setSuccess(true);
-		setlogin(true);
-		navigate("/home");
-	}
+  const [errMsg, setErrMsg] = useState<string>('');
+  const [success, setSuccess] = useState<boolean>(false);
+  const router = useRouter();
 
-		userRef.current.focus();
-	}, [user, token])
-	useEffect(() => {
-		setErrMsg("")
-	}, [formData.username, formData.password])
+  const navigate = (route: string) => {
+    router.push(route);
+  };
 
-	const handleChange = (e) => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
-	};
+  useEffect(() => {
+    if (user && token) {
+      setSuccess(true);
+      setlogin(true);
+      navigate('/home');
+    }
 
-	const handleSubmit = async (e) => {
-    		e.preventDefault();
+    if (userRef.current) {
+      userRef.current.focus();
+    }
+  }, [user, token]);
 
-		try {
-			const response = await axios.post('http://localhost:3000/api/auth/login', formData);
-			console.log(response);
-			const token = response?.data?.user?.password;
-			console.log(token);
-			console.log(formData.username);
-			console.log(formData.password);
-			const user = formData.username;
-			const pwd = formData.password
-			console.log('Login successful:', response.data);
-			localStorage.setItem("user", user)
-			localStorage.setItem("token", token);
-			setSuccess(true);
-			setlogin(true);
-			navigate("/");
+  useEffect(() => {
+    setErrMsg('');
+  }, [formData.username, formData.password]);
 
-		} catch (err) {
-		if (!err?.response){
-		setErrMsg("No Server Response");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-		} else if (err.response?.status === 400) {
-			setErrMsg("missing user name or password");
-		} else if (err.response?.status === 401) {
-			setErrMsg("Unauthorized");
-		} else {
-			setErrMsg("Login Failed");
-		}
-			errRef.current.focus();
-		}
-	};
-	function remover() {
-		localStorage.removeItem("user");
-		localStorage.removeItem("token");
-		setSuccess(false);
-		setlogin(false);
-	}
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-	return (
-		<>
-	  			{success ? (
-				<div>
-				<h1>You are logged In!</h1>
-				<br />
-				<p><button onClick={remover}>Log Out</button></p>
-				</div>
-			) : (
-				<>	
-				<img className={styles.loginimdb} src="/shoes.png" />
-				<div className={styles.login}>
-				<h1>Sign In</h1>
-				<p className={styles.rederror} ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive"><span className={styles.rederror}>{errMsg}</span></p>
- 				<form onSubmit={handleSubmit}>
-				<div className={styles.loginlabel}>
-				<label>Username</label>
-				</div>
-				<div>
-				<input
-				className={styles.logininput}
-				type="text"
-				name="username"
-				ref = {userRef}
-				autoComplete="off"
-				value={formData.username}
-				onChange={handleChange}
-			/>
-				</div>
-				<div className={styles.loginlabel}>
-				<label >Password</label>
-				</div>
-				<div>
-				<input 
-				className={styles.logininput}
-				type="password"
-				name="password"
-				value={formData.password}
-				onChange={handleChange}
-			/>
-				</div>
-				<button className={styles.loginbutton} type="submit">Signin</button>
-			<button className={styles.signuplinkbutton} ><a href="/signup">Create your IMDb account</a></button>
-		</form>
-		</div>
-		</>
-		)}
-	</>
+    try {
+      const response = await axios.post('http://localhost:3000/api/auth/login', formData);
+      console.log(response);
+      const token = response?.data?.user?.password;
+      console.log(token);
+      console.log(formData.username);
+      console.log(formData.password);
+      const user = formData.username;
+      const pwd = formData.password;
+      console.log('Login successful:', response.data);
+      localStorage.setItem('user', user);
+      localStorage.setItem('token', token);
+      setSuccess(true);
+      setlogin(true);
+      navigate('/');
+    } catch (err: any) { // Use AxiosError here
+      if (!err?.response) {
+        setErrMsg('No Server Response');
+      } else if (err.response.status === 400) {
+        setErrMsg('Missing user name or password');
+      } else if (err.response.status === 401) {
+        setErrMsg('Unauthorized');
+      } else {
+        setErrMsg('Login Failed');
+      }
+      if (errRef.current) {
+        errRef.current.focus();
+      }
+    }
+  }
+
+  function remover() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    setSuccess(false);
+    setlogin(false);
+  }
+
+  return (
+	    <>
+      <Head>
+        <title>Sign In</title>
+      </Head>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Aguafina+Script&family=Amatic+SC&family=Barrio&family=Bellota:wght@300&family=Black+Ops+One&family=Caveat&family=Chakra+Petch:ital,wght@1,300&family=Cinzel&family=Cookie&family=Croissant+One&family=Dancing+Script&family=Faster+One&family=Fuggles&family=Gugi&family=Hammersmith+One&family=Homemade+Apple&family=Itim&family=Lilita+One&family=Montserrat+Alternates:wght@100&family=Nothing+You+Could+Do&family=Orbitron&family=Playball&family=Rajdhani&family=Satisfy&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&family=Space+Mono&family=Tilt+Prism&family=Yellowtail&display=swap"
+        rel="stylesheet"
+      />
+      <Header setlogin={setlogin} setSuccess={setSuccess}/>
+
+      {success ? (
+        <div className={styles.login}>
+          <h1 className={styles.logintitle}>You are logged In!</h1>
+          <br />
+          <p>
+            <button onClick={remover} className={styles.loginbutton}>Log Out</button>
+          </p>
+        </div>
+      ) : (
+        <>
+          <div className={styles.login}>
+            <img className={styles.signupimage} src="./logo.jpg" alt="Logo" />
+            <h1 className={styles.logintitle}>Sign In</h1>
+            <p
+              className={errMsg ? `${styles.rederror}` : 'offscreen'}
+              ref={errRef}
+              aria-live="assertive"
+            >
+              <span className={styles.rederror}>{errMsg}</span>
+            </p>
+            <form onSubmit={handleSubmit}>
+              <label className={styles.labeltitle}>Username</label>
+              <input
+                className={styles.titleinput}
+                type="text"
+                name="username"
+		placeholder="username"
+                ref={userRef}
+                autoComplete="off"
+                value={formData.username}
+                onChange={handleChange}
+              />
+              <label className={styles.labeltitle}>Password</label>
+              <input
+                className={styles.titleinput}
+                type="password"
+                name="password"
+		placeholder="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+              <button className={styles.loginbutton} type="submit">
+                Signin
+              </button>
+              <button className={styles.signupbutton}>
+                <a href="/signup">Create your Shavath account</a>
+              </button>
+            </form>
+          </div>
+        </>
+      )}
+    </>
   );
 }
 
 export default Login;
+

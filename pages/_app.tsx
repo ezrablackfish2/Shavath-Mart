@@ -3,53 +3,58 @@ import Home from "./home";
 import UploadForm from "../components/UploadForm";
 import { useRouter } from 'next/router';
 
-function App({ Component, pageProps }) {
+interface AppProps {
+  Component: React.ComponentType;
+  pageProps: any; // Change 'any' to the appropriate type if known
+}
+
+function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const handleNavigation = (route) => {
+  const handleNavigation = (route: string) => {
     router.push(route);
   };
 
-  const [search, setSearch] = useState("");
-  const [token, setToken] = useState('');
-  const [user, setUser] = useState('');
+  const [search, setSearch] = useState<string>("");
+  const [token, setToken] = useState<string>('');
+  const [user, setUser] = useState<string>('');
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
   });
-  const [signupData, setSignupData] = useState({
+  const [signupData, setSignupData] = useState<{ username: string; password1: string; password2: string }>({
     username: '',
     password1: '',
     password2: '',
   });
-  const [loggedin, setlogin] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [VG, setVG] = useState(null);
-  const [rateOn, setRateOn] = useState(false);
-  const [watchlistOn, setWatchlistOn] = useState(false);
-  const [darkoverlay, setDarkOverlay] = useState(false);
-  const [watchlistSuccess, setWatchlistSuccess] = useState(false);
-  const [watchlist, setWatchlist] = useState(false);
-  const [remover, setRemover] = useState(true);
-  const [shower, setShower] = useState(false);
-	useEffect(() => {
+  const [loggedin, setlogin] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [VG, setVG] = useState<null | any>(null); // Replace 'any' with the appropriate type
+  const [rateOn, setRateOn] = useState<boolean>(false);
+  const [watchlistOn, setWatchlistOn] = useState<boolean>(false);
+  const [darkoverlay, setDarkOverlay] = useState<boolean>(false);
+  const [watchlistSuccess, setWatchlistSuccess] = useState<boolean>(false);
+  const [watchlist, setWatchlist] = useState<boolean>(false);
+  const [remover, setRemover] = useState<boolean>(true);
+  const [shower, setShower] = useState<boolean>(false);
+
+  useEffect(() => {
     if (typeof localStorage !== 'undefined') {
-   	 const storedToken = localStorage.getItem("token");
-    	const storedUser = localStorage.getItem("user");
-    	const storedIsAuthenticated = localStorage.getItem('token') !== null;
+      const storedToken = localStorage.getItem("token");
+      const storedUser = localStorage.getItem("user");
+      const storedIsAuthenticated = localStorage.getItem('token') !== null;
 
-    	if (storedToken) setToken(storedToken);
-    	if (storedUser) setUser(storedUser);
-    	setIsAuthenticated(storedIsAuthenticated);
-	}
-	}, []);
+      if (storedToken) setToken(storedToken);
+      if (storedUser) setUser(storedUser);
+      setIsAuthenticated(storedIsAuthenticated);
+    }
+  }, []);
 
-
-
-return (
-        <>
-	<Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser}/>
-        </>
-);
+  return (
+    <>
+      <Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser} />
+    </>
+  );
 }
 
 export default App;
+
