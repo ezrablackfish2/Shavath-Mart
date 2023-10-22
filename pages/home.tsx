@@ -3,13 +3,14 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Search from "../components/Search";
 import Products from "../components/Products";
-import data from '../utils/data.json';
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import SearchProduct from "../components/SearchProduct";
 import Head from "next/head";
 import Bottom from "../components/Bottom";
 import Link from 'next/link';
+import useProducts from "../hooks/useProducts";
+import data from "../utils/data.json"
 
 interface HomeProps {
   shower: any; // Change 'any' to the specific type you're using
@@ -21,6 +22,8 @@ interface HomeProps {
 }
 
 export default function Home({ shower, remover, user, token, setlogin, setSuccess }: HomeProps) {
+	const {products, error, isLoading } = useProducts(user, token);
+	console.log(products);
   return (
     <>
       <Head>
@@ -34,7 +37,7 @@ export default function Home({ shower, remover, user, token, setlogin, setSucces
         <SearchProduct />
       </div>
       <div className="flex justify-center mb-28">
-        <Products data={data} />
+        <Products data={products} />
       </div>
       <Bottom />
       <Footer />
