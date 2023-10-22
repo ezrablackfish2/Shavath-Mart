@@ -51,7 +51,8 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
               className={styles.headerphoneimage}
               src={"/phone.png"}
               alt="Phone Image"
-	      width=""
+	      width={0}
+	      height={0}
             />
             7944
           </Link>
@@ -62,7 +63,8 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
               className={styles.headergmailimage}
               src={"/gmail.png"}
               alt="Gmail Image"
-	      width = ""
+	      width = {0}
+	      height = {0}
             />
             shavath@gmail
           </button>
@@ -75,7 +77,8 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
                   className={styles.headerimages}
                   src={icon}
                   alt="Social Media Image"
-		  width=""
+		  width={0}
+		  height = {0}
                 />
               </Link>
             </div>
@@ -84,7 +87,7 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
       </div>
       <div className={styles.navigationbar}>
         <Link href="/home">
-          <Image className={styles.logo} src="/logo.jpg" alt="Logo Image" width=""/>
+          <Image className={styles.logo} src="/logo.jpg" alt="Logo Image" width={0} height={0}/>
         </Link>
         <Search />
       </div>
