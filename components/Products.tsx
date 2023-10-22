@@ -17,7 +17,7 @@ export default function Products(props: ProductsProp) {
         <div className={styles.product}>
             {
                 props.data.map((product) => (
-                    <Product product={product}/>
+                    <Product key={product.id} product={product}/>
                 ))
             }
         </div>
