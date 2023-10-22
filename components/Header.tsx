@@ -87,7 +87,7 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
       </div>
       <div className={styles.navigationbar}>
         <Link href="/home">
-          <Image className={styles.logo} src="/logo.jpg" alt="Logo Image" width={0} height={0}/>
+          <img className={styles.logo} src="/logo.jpg" alt="Logo Image"/>
         </Link>
         <Search />
       </div>
