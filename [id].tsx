@@ -1,6 +1,5 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import data from '../utils/data.json';
 import "../app/globals.css"
 import Header from "../components/Header";
 import Hero from "../components/Hero";
