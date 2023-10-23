@@ -2,7 +2,7 @@ import { useState } from "react";
 import apiClient from "../api/api-client-axios";
 import { useEffect } from "react";
 
-interface Props = {
+interface Props {
 	user: any;
 	token: any;
 }
