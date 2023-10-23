@@ -7,7 +7,7 @@ interface Props {
 	setSearch: () => void;
 }
 export default function Search( {search, setSearch}: Props ) {
-	function handleSearch(event: any) {
+	function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
 		setSearch(event.target.value);
 	};
     return (
