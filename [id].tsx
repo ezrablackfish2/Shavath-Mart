@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { useRouter } from 'next/router';
 import data from '../utils/data.json';
 import "../app/globals.css"
@@ -99,26 +98,12 @@ async function fetchData() {
   return data;
 }
 
-//export async function getStaticPaths() {
-//  const data = await fetchData();
-//  
-//  const paths = data.map((item: any) => ({
-//    params: { id: item._id },
-//  }));
-
-
-async function fetchData() {
-  try {
-    const response = await axios.get('http://localhost:3000/api');
-    const data = response.data;
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    throw error; // You can handle the error as needed
-  }
-}
-
+export async function getStaticPaths() {
+  const data = await fetchData();
+  
+  const paths = data.map((item: any) => ({
+    params: { id: item._id },
+  }));
 
   return {
     paths,
