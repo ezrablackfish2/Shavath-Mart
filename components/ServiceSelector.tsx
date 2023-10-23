@@ -9,7 +9,7 @@ interface Props {
 }
 
 function CustomDropdown ( {setSelectedService, selectedService, selectedDrop, setSelectedDrop} : Props) {
-	const services = ["Cloth", "Shoes", "Electronic Devices", "Books", "Entertainment", "Automobiles"]
+	const services = ["Cloth", "Shoes"]
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleDropdown = () => {
     		setIsOpen(!isOpen);

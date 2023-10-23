@@ -26,7 +26,7 @@ function News ( {setSelectedNews, selectedNews, selectedDrop, setSelectedDrop} :
 	};
 
   return (
-    <div className={isOpen ? styles.dropdownopen2 : styles.dropdown2} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={isOpen ? styles.nuller : styles.nuller} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
            <div className={(selectedDrop === "News" || selectedDrop === "all") ? ( isOpen ? styles.select3open : styles.select ) : (styles.hiddenword)} onClick={toggleDropdown}>
         <div className={styles.selectorword}>{selectedNews}</div> <div className={styles.imagebox}><img src="/dropdown.png" className={styles.dropdownarrow} /></div>
       </div>

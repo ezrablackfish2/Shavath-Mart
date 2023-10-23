@@ -26,7 +26,7 @@ function Currency ( {setSelectedCurrency, selectedCurrency, selectedDrop, setSel
 	};
 
   return (
-    <div className={isOpen ? styles.dropdownopen2 : styles.dropdown2} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={isOpen ? styles.nuller : styles.nuller} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
            <div className={(selectedDrop === "Currency" || selectedDrop === "all") ? ( isOpen ? styles.select4open : styles.select ) : (styles.hiddenword)} onClick={toggleDropdown}>
         <div className={styles.selectorword}>{selectedCurrency}</div> <div className={styles.imagebox}><img src="/dropdown.png" className={styles.dropdownarrow} /></div>
       </div>

@@ -102,14 +102,6 @@ export default function Header({ setlogin, setSuccess, search, setSearch }: Head
           selectedAbout={selectedAbout}
           setSelectedAbout={setSelectedAbout}
         />
-        <News
-          selectedNews={selectedNews}
-          setSelectedNews={setSelectedNews}
-        />
-        <Currency
-          selectedCurrency={selectedCurrency}
-          setSelectedCurrency={setSelectedCurrency}
-        />
       </div>
     </>
   );
