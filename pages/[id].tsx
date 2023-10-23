@@ -92,7 +92,7 @@ const [review, setReview] = useState('');
 };
 
 async function fetchData() {
-  const response = await fetch('http://10.5.27.14:3000/api');
+  const response = await fetch('http://10.5.27.14:3000/api', { timeout: 10000 });
   const data = await response.json();
 	console.log(data);
   return data;
