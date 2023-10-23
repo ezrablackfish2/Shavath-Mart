@@ -6,7 +6,7 @@ interface Product {
 	name: string;
 	price: string;
 	color: string;
-	image: string;
+	img: string;
 }
 type ProductsProp = {
 	data : Product[];
