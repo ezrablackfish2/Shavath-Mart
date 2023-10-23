@@ -10,8 +10,6 @@ interface Product {
 }
 type ProductsProp = {
 	data : Product[];
-	user: any; // Define the specific type for user
-	token: any;
 	search: any;
 }
 
