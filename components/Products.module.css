@@ -32,7 +32,8 @@
 }
 
 .products:hover {
-	width: 300px;
+	position: relative;
+	width: 260px;
 	transition-property: width;
 	transition-duration: 0.5s;
 }
