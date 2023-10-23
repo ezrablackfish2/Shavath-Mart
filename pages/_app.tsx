@@ -49,7 +49,8 @@ function App({ Component, pageProps }: AppProps) {
       setIsAuthenticated(storedIsAuthenticated);
     }
   }, []);
-      const {products, error, isLoading } = useProducts(user, token);
+      const { products, error, isLoading } = useProducts({ user: user, token: token });
+
 
   return (
     <>
