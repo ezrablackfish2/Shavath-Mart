@@ -1,10 +1,8 @@
 module.exports = {
+  extends: 'next/core-web-vitals', // This specifies the ESLint configuration to extend.
 
   rules: {
     'next/no-img-element': 'off',
   },
 };
-{
-  "extends": "next/core-web-vitals"
-}
 
