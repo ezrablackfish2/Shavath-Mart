@@ -10,9 +10,11 @@ interface UploadProps {
   token: any; // Replace 'any' with the actual type of 'token'
   setlogin: any;
   setSuccess: any;
+  search: any;
+  setSearch: any;
 }
 
-const Upload: React.FC<UploadProps> = ({ user, token, setSuccess, setlogin }) => {
+const Upload: React.FC<UploadProps> = ({ user, token, setSuccess, setlogin, search, setSearch }) => {
   return (
     <>
       <link
@@ -22,7 +24,7 @@ const Upload: React.FC<UploadProps> = ({ user, token, setSuccess, setlogin }) =>
       <Head>
         <title>Upload Data</title>
       </Head>
-      <Header setlogin={setlogin} setSuccess={setSuccess}/>
+      <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch}/>
       <UploadPage user={user} token={token} />
     </>
   );
