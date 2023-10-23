@@ -2,7 +2,6 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import data from '../utils/data.json';
 import "../app/globals.css"
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Search from "../components/Search";
 import Products from "../components/Products";
@@ -15,6 +14,7 @@ import Link from 'next/link';
 import styles from "../components/Detail.module.css";
 import style from "../components/Review.module.css";
 import useProducts from "../hooks/useProducts";
+import Header from "../components/Header";
 
 interface Props {
 	item: any;
