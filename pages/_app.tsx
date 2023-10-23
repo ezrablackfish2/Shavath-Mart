@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Home from "./home";
 import UploadForm from "../components/UploadForm";
 import { useRouter } from 'next/router';
+import useProducts from "../hooks/useProducts";
 
 interface AppProps {
   Component: React.ComponentType;
@@ -48,13 +49,14 @@ function App({ Component, pageProps }: AppProps) {
       setIsAuthenticated(storedIsAuthenticated);
     }
   }, []);
+      const {products, error, isLoading } = useProducts(user, token);
+	const prod = products;
 
   return (
     <>
-      <Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser} />
+      <Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser} products={prod}/>
     </>
   );
 }
 
 export default App;
-

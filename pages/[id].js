@@ -14,6 +14,7 @@ import Bottom from "../components/Bottom";
 import Link from 'next/link';
 import styles from "../components/Detail.module.css";
 import style from "../components/Review.module.css";
+import useProducts from "../hooks/useProducts";
 
 
 const ItemDetail = ({ item }) => {
@@ -81,24 +82,39 @@ const [review, setReview] = useState('');
   );
 };
 
+async function fetchData() {
+  const response = await fetch('http://localhost:3000/api');
+  const data = await response.json();
+	console.log(data);
+  return data;
+}
+
 export async function getStaticPaths() {
+  const data = await fetchData();
+  
   const paths = data.map((item) => ({
-    params: { id: item.id.toString() },
+    params: { id: item._id },
   }));
 
-  return { paths, fallback: true };
+  return {
+    paths,
+    fallback: false
+  };
 }
 
 export async function getStaticProps({ params }) {
-  const itemId = parseInt(params.id);
-  const item = data.find((item) => item.id === itemId);
+  const data = await fetchData();
+  const item = data.find((item) => item._id.toString() === params.id);
+
+  if (!item) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: {
-      item,
-    },
+    props: { item },
   };
 }
 
 export default ItemDetail;
-

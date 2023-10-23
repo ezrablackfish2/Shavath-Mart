@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 type ProductProps = {
 	product : {
-	id : number;
+	_id : string;
 	name : string;
 	price : string;
 	color : string;

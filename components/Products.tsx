@@ -2,7 +2,7 @@ import Product from "./Product"
 import styles from "./Products.module.css";
 
 interface Product {
-	id: number;
+	_id: string;
 	name: string;
 	price: string;
 	color: string;
@@ -10,6 +10,8 @@ interface Product {
 }
 type ProductsProp = {
 	data : Product[];
+	user: any; // Define the specific type for user
+	token: any;
 }
 
 export default function Products(props: ProductsProp) {
@@ -17,7 +19,7 @@ export default function Products(props: ProductsProp) {
         <div className={styles.product}>
             {
                 props.data.map((product) => (
-                    <Product key={product.id} product={product}/>
+                    <Product key={product._id} product={product}/>
                 ))
             }
         </div>

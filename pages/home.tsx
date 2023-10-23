@@ -12,6 +12,7 @@ import Link from 'next/link';
 import useProducts from "../hooks/useProducts";
 import data from "../utils/data.json"
 
+
 interface HomeProps {
   shower: any; // Change 'any' to the specific type you're using
   remover: any; // Change 'any' to the specific type you're using
@@ -21,9 +22,9 @@ interface HomeProps {
   setSuccess: any;
 }
 
-export default function Home({ shower, remover, user, token, setlogin, setSuccess }: HomeProps) {
-	const {products, error, isLoading } = useProducts(user, token);
+export default function Home({ shower, remover, user, token, setlogin, setSuccess, products }: HomeProps) {
 	console.log(products);
+
   return (
     <>
       <Head>
@@ -44,4 +45,3 @@ export default function Home({ shower, remover, user, token, setlogin, setSucces
     </>
   );
 }
-
