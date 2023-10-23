@@ -22,6 +22,9 @@ interface HomeProps {
   setlogin: any;
   setSuccess: any;
   setSearch: () => void;
+  products: any;
+  error: any;
+  isLoading: any;
 }
 
 export default function Home({ shower, remover, user, token, setlogin, setSuccess, products, error, isLoading, search, setSearch }: HomeProps) {
