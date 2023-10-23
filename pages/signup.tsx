@@ -20,7 +20,7 @@ interface Props {
   setSearch: any;
 }
 
-function Signup({ user, token, formData, setFormData, loggedin, setlogin, setUser, setToken, search, setSeearch }: Props) {
+function Signup({ user, token, formData, setFormData, loggedin, setlogin, setUser, setToken, search, setSearch }: Props) {
   const { setAuth } = useContext(AuthContext);
   const userRef = useRef<HTMLInputElement>(null);
   const errRef = useRef<HTMLDivElement>(null);
