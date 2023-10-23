@@ -2,7 +2,12 @@ import { useState } from "react";
 import apiClient from "../api/api-client-axios";
 import { useEffect } from "react";
 
-function useProducts(user, token) {
+interface Props = {
+	user: any;
+	token: any;
+}
+
+function useProducts({user, token}: Props) {
         const [products, setProducts ] = useState([]);
         const [error, setError] = useState("");
         const [isLoading, setLoading] = useState(false);
