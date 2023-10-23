@@ -16,13 +16,19 @@ import styles from "../components/Detail.module.css";
 import style from "../components/Review.module.css";
 import useProducts from "../hooks/useProducts";
 
-
-const ItemDetail = ({ item }) => {
+interface Props {
+	item: any;
+	setlogin: any;
+	setSuccess: any;
+	search: any;
+	setSearch: any;
+}
+const ItemDetail = ({ item, setlogin, setSuccess, search, setSearch }: Props) => {
 	const router = useRouter();
 	const description = ["wide", "cotton-made", "weight very light not less than 250g", "tight on the shoulders", "high quality ester", "all sizes L to XXL"]
 const [review, setReview] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
     };
 
@@ -41,7 +47,7 @@ const [review, setReview] = useState('');
         <title>{item.name}</title>
         </Head>
         <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Aguafina+Script&family=Amatic+SC&family=Barrio&family=Bellota:wght@300&family=Black+Ops+One&family=Caveat&family=Chakra+Petch:ital,wght@1,300&family=Cinzel&family=Cookie&family=Croissant+One&family=Dancing+Script&family=Faster+One&family=Fuggles&family=Gugi&family=Hammersmith+One&family=Homemade+Apple&family=Itim&family=Lilita+One&family=Montserrat+Alternates:wght@100&family=Nothing+You+Could+Do&family=Orbitron&family=Playball&family=Rajdhani&family=Satisfy&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&family=Space+Mono&family=Tilt+Prism&family=Yellowtail&display=swap" rel="stylesheet" />
-            <Header />
+            <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch} />
 	  	<div className={styles.productdetail}>
 	  	<img className={styles.detailimage} src={imageURI} alt={item.name} />
 		<div className={styles.detailinfo}>
@@ -95,7 +101,7 @@ async function fetchData() {
 export async function getStaticPaths() {
   const data = await fetchData();
   
-  const paths = data.map((item) => ({
+  const paths = data.map((item: any) => ({
     params: { id: item._id },
   }));
 
@@ -105,9 +111,12 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+interface Props {
+	params: any;
+}
+export async function getStaticProps({ params }: Props) {
   const data = await fetchData();
-  const item = data.find((item) => item._id.toString() === params.id);
+  const item = data.find((item: any) => item._id.toString() === params.id);
 
   if (!item) {
     return {
