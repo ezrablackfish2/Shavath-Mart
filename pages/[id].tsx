@@ -15,6 +15,7 @@ import Link from 'next/link';
 import styles from "../components/Detail.module.css";
 import style from "../components/Review.module.css";
 import useProducts from "../hooks/useProducts";
+import axios from "axios";
 
 interface Props {
 	item: any;
@@ -91,11 +92,24 @@ const [review, setReview] = useState('');
   );
 };
 
+// async function fetchData() {
+//  const response = await fetch('http://10.5.27.14:3000/api', );
+//  const data = await response.json();
+//	console.log(data);
+//  return data;
+//}
+
+
 async function fetchData() {
-  const response = await fetch('http://10.5.27.14:3000/api', { timeout: 10000 });
-  const data = await response.json();
-	console.log(data);
-  return data;
+  try {
+    const response = await axios.get('http://10.5.27.14:3000/api');
+    const data = response.data;
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error; // Optional: Rethrow the error for higher-level error handling
+  }
 }
 
 export async function getStaticPaths() {
