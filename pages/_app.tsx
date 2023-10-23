@@ -50,11 +50,10 @@ function App({ Component, pageProps }: AppProps) {
     }
   }, []);
       const {products, error, isLoading } = useProducts(user, token);
-	const prod = products;
 
   return (
     <>
-      <Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser} products={prod}/>
+      <Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser} products={products} error={error} isLoading={isLoading}/>
     </>
   );
 }

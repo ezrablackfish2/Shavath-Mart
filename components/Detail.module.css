@@ -92,6 +92,7 @@
 	position: relative;
 	display: inline-block;
 	width: 50%;
+	top: -100px;
 	left: 0%;
 }
 .detailprice {
@@ -121,6 +122,7 @@
 	}
 	.detailimage {
 		width: 100%;
+		top: 0px;
 	}
 }
 @media (max-width: 448px) {

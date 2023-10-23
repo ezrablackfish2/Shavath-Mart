@@ -10,7 +10,8 @@ import Head from "next/head";
 import Bottom from "../components/Bottom";
 import Link from 'next/link';
 import useProducts from "../hooks/useProducts";
-import data from "../utils/data.json"
+import data from "../utils/data.json";
+import styles from "../components/Home.module.css";
 
 
 interface HomeProps {
@@ -22,7 +23,7 @@ interface HomeProps {
   setSuccess: any;
 }
 
-export default function Home({ shower, remover, user, token, setlogin, setSuccess, products }: HomeProps) {
+export default function Home({ shower, remover, user, token, setlogin, setSuccess, products, error, isLoading }: HomeProps) {
 	console.log(products);
 
   return (
@@ -38,6 +39,8 @@ export default function Home({ shower, remover, user, token, setlogin, setSucces
         <SearchProduct />
       </div>
       <div className="flex justify-center mb-28">
+	{error && <p> Ezra site request error code 77 </p>}
+	{isLoading && <img src="/loading.gif" className={styles.loadhome} />}
         <Products data={products} />
       </div>
       <Bottom />
