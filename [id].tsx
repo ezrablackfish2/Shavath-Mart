@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import "../app/globals.css"
-import Header from "../components/Header";
+import Header from "../components/Header.tsx";
 import Hero from "../components/Hero";
 import Search from "../components/Search";
 import Products from "../components/Products";
