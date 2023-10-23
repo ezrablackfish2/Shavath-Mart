@@ -102,7 +102,7 @@ const [review, setReview] = useState('');
 
 async function fetchData() {
   try {
-    const response = await axios.get('http://10.5.27.14:3000/api');
+    const response = await axios.get('http://localhost:3000/api');
     const data = response.data;
     console.log(data);
     return data;
