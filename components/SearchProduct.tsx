@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 
 interface Props {
         search: string;
-        setSearch: () => void;
+        setSearch: (selected: string => void;
 }
 
 export default function SearchProduct({ search, setSearch}: Props) {

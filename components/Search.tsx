@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface Props {
 	search: string;
-	setSearch: () => void;
+	setSearch: (selected: any) => void;
 }
 export default function Search( {search, setSearch}: Props ) {
 	function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
