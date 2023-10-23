@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import data from '../utils/data.json';
 import "../app/globals.css"
+import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Search from "../components/Search";
 import Products from "../components/Products";
@@ -14,7 +15,6 @@ import Link from 'next/link';
 import styles from "../components/Detail.module.css";
 import style from "../components/Review.module.css";
 import useProducts from "../hooks/useProducts";
-import Header from "../components/Header";
 
 interface Props {
 	item: any;
@@ -91,27 +91,12 @@ const [review, setReview] = useState('');
   );
 };
 
-import axios from 'axios';
-
 async function fetchData() {
-  try {
-    const response = await axios.get('http://localhost:3000/api');
-    const data = response.data;
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    throw error; // You can handle the error as needed
-  }
+  const response = await fetch('http://localhost:3000/api');
+  const data = await response.json();
+	console.log(data);
+  return data;
 }
-
-
-// async function fetchData() {
-//  const response = await fetch('http://localhost:3000/api');
-//  const data = await response.json();
-//	console.log(data);
-//  return data;
-//}
 
 export async function getStaticPaths() {
   const data = await fetchData();
