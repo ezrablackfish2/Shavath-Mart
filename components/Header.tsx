@@ -14,6 +14,7 @@ interface HeaderProps {
   setlogin: (value: any) => void;
   setSuccess: (value: any) => void;
   search: any;
+  setSearch: any;
 }
 
 export default function Header({ setlogin, setSuccess, search, setSearch }: HeaderProps) {
