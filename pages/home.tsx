@@ -21,10 +21,10 @@ interface HomeProps {
   token: any; // Change 'any' to the specific type you're using
   setlogin: any;
   setSuccess: any;
+  setSearch: () => void;
 }
 
-export default function Home({ shower, remover, user, token, setlogin, setSuccess, products, error, isLoading }: HomeProps) {
-	console.log(products);
+export default function Home({ shower, remover, user, token, setlogin, setSuccess, products, error, isLoading, search, setSearch }: HomeProps) {
 
   return (
     <>
@@ -32,16 +32,15 @@ export default function Home({ shower, remover, user, token, setlogin, setSucces
         <title>Shavath Mart</title>
       </Head>
       <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Aguafina+Script&family=Amatic+SC&family=Barrio&family=Bellota:wght@300&family=Black+Ops+One&family=Caveat&family=Chakra+Petch:ital,wght@1,300&family=Cinzel&family=Cookie&family=Croissant+One&family=Dancing+Script&family=Faster+One&family=Fuggles&family=Gugi&family=Hammersmith+One&family=Homemade+Apple&family=Itim&family=Lilita+One&family=Montserrat+Alternates:wght@100&family=Nothing+You+Could+Do&family=Orbitron&family=Playball&family=Rajdhani&family=Satisfy&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&family=Space+Mono&family=Tilt+Prism&family=Yellowtail&display=swap" rel="stylesheet" />
-      <Header setlogin={setlogin} setSuccess={setSuccess}/>
+      <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch}/>
       <Hero />
-      {console.log(shower, remover, user, token)}
       <div className="flex justify-center my-10">
-        <SearchProduct />
+        <SearchProduct search={search} setSearch={setSearch}/>
       </div>
       <div className="flex justify-center mb-28">
 	{error && <p> Ezra site request error code 77 </p>}
 	{isLoading && <img src="/loading.gif" className={styles.loadhome} />}
-        <Products data={products} />
+        <Products data={products} search={search} />
       </div>
       <Bottom />
       <Footer />

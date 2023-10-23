@@ -13,9 +13,10 @@ import React, { useState, useEffect } from 'react';
 interface HeaderProps {
   setlogin: (value: any) => void;
   setSuccess: (value: any) => void;
+  search: any;
 }
 
-export default function Header({ setlogin, setSuccess }: HeaderProps) {
+export default function Header({ setlogin, setSuccess, search, setSearch }: HeaderProps) {
   const [selectedService, setSelectedService] = useState("Services");
   const [selectedAbout, setSelectedAbout] = useState("About");
   const [selectedNews, setSelectedNews] = useState("News");
@@ -89,7 +90,7 @@ export default function Header({ setlogin, setSuccess }: HeaderProps) {
         <Link href="/home">
           <img className={styles.logo} src="/logo.jpg" alt="Logo Image"/>
         </Link>
-        <Search />
+        <Search search={search} setSearch={setSearch} />
       </div>
       <div className={!isSticky ? styles.dropdowns : styles.dropdownsfixed}>
         <ServiceSelector

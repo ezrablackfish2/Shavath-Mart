@@ -12,13 +12,20 @@ type ProductsProp = {
 	data : Product[];
 	user: any; // Define the specific type for user
 	token: any;
+	search: any;
 }
 
 export default function Products(props: ProductsProp) {
     return (
         <div className={styles.product}>
             {
-                props.data.map((product) => (
+                props.data
+			.filter((product) => {
+			return props.search.toLowerCase() === ""
+			? product
+			: product.name.toLowerCase().includes(props.search);
+		})
+			.map((product) => (
                     <Product key={product._id} product={product}/>
                 ))
             }
