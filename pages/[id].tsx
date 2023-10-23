@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { useRouter } from 'next/router';
 import data from '../utils/data.json';
 import "../app/globals.css"
@@ -92,20 +91,7 @@ const [review, setReview] = useState('');
   );
 };
 
-async function fetchData() {
-  const response = await fetch('http://localhost:3000/api');
-  const data = await response.json();
-	console.log(data);
-  return data;
-}
-
-//export async function getStaticPaths() {
-//  const data = await fetchData();
-//  
-//  const paths = data.map((item: any) => ({
-//    params: { id: item._id },
-//  }));
-
+import axios from 'axios';
 
 async function fetchData() {
   try {
@@ -120,11 +106,25 @@ async function fetchData() {
 }
 
 
-//  return {
-//    paths,
-//    fallback: false
-//  };
+// async function fetchData() {
+//  const response = await fetch('http://localhost:3000/api');
+//  const data = await response.json();
+//	console.log(data);
+//  return data;
 //}
+
+export async function getStaticPaths() {
+  const data = await fetchData();
+  
+  const paths = data.map((item: any) => ({
+    params: { id: item._id },
+  }));
+
+  return {
+    paths,
+    fallback: false
+  };
+}
 
 interface Props {
 	params: any;
