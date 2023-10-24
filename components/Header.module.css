@@ -49,7 +49,8 @@
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	background-color: #FFA500;
+	color: #ffffff;
+	background-color: #2C2E7B;
 	height: 35px;
 }
 .headermedia {
@@ -154,7 +155,9 @@
 		display: inline-block;
 	}
 	.searchbar {
-		display: none;
+		display: inline-block;
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 	.searchimage {
 		position: absolute;

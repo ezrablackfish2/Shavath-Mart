@@ -154,9 +154,6 @@ function Login({ user, token, formData, setFormData, loggedin, setlogin, respons
               <button className={styles.loginbutton} type="submit">
                 Signin
               </button>
-              <button className={styles.signupbutton}>
-                <a href="/signup">Create your Shavath account</a>
-              </button>
             </form>
           </div>
         </>

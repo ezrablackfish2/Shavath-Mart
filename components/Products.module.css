@@ -1,3 +1,24 @@
+.pagination {
+	position: relative;
+	display: block;	
+	font-family: 'Itim';
+	color: #2c06f0;
+}
+.nextbutton {
+	margin: 15px;
+}
+.nextbutton:hover {
+	color: #bb1100;
+}
+.prevbutton {
+        margin: 15px;
+}
+.prevbutton:hover {
+        color: #bb1100;
+}
+
+
+
 .detailadd {
         position: relative;
         display: inline-block;
@@ -6,7 +27,9 @@
         justify-content: center;
         margin-left: 30%;
         padding: 10px;
+	background-color: #ffbb00;
         background-color: #2C2E7B;
+	color: #000000;
         color: #ffffff;
         border-radius: 25px 25px 25px 25px;
         font-family: 'Bellota';
@@ -27,6 +50,8 @@
 	margin-right: 5%;
 	border-radius: 25px 25px 25px 25px;
 	background-color: #ffbb00;
+	background-color: #eeeeee;
+        color: #ffffff;
 	color: #0670ec;
 	margin-bottom: 8%;
 }
@@ -46,7 +71,13 @@
 }
 
 .productimage {
+	position: relative;
+	display: inline-block;
+	top: 22px;
 	width: 100%;
+	max-height: 200px;
+	min-height: 150px;
+	margin-bottom: 22px;
 }
 
 .productname {

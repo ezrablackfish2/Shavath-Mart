@@ -59,7 +59,7 @@ const [review, setReview] = useState('');
 		<p className={styles.detailcolor}>Color: {item.color}</p>
 		<p className={styles.detailprice}>Price: {item.price}</p>
 
-	  	<button className={styles.detailadd}>Add to Cart </button>
+	  	<button className={styles.detailadd}>Availabilty </button>
 	  	</div>
 	  	<div className={styles.detailreview}>
 	  	<h1 className={styles.detailreviewtitle}>Review</h1>

@@ -92,6 +92,7 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
       <button className={styles.uploadbutton} type="submit">
         Upload
       </button>
+
     </form>
   );
 };

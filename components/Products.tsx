@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Product from "./Product"
 import styles from "./Products.module.css";
 
@@ -14,19 +15,48 @@ type ProductsProp = {
 }
 
 export default function Products(props: ProductsProp) {
+	const [currentPage, setCurrentPage] = useState(1);
+	const productsPerPage = 5;
+	const filteredProducts = props.data
+    					   .filter((product) => {
+      					    return props.search.toLowerCase() === ""
+					    ? product
+					    : product.name.toLowerCase().includes(props.search);
+					});
+	const totalProducts = filteredProducts.length;
+	const totalPages = Math.ceil(totalProducts / productsPerPage);
+	const handlePageChange = (page) => {
+    		setCurrentPage(page);
+	};
+	  const handleNextPage = () => {
+    		if (currentPage < totalPages) {
+      		setCurrentPage(currentPage + 1);
+		}
+	};
+	  const handlePrevPage = () => {
+    		if (currentPage > 1) {
+		setCurrentPage(currentPage - 1);
+		}
+	};
+	const startIndex = (currentPage - 1) * productsPerPage;
+	const endIndex = Math.min(startIndex + productsPerPage, totalProducts);
+	const currentProducts = filteredProducts.slice(startIndex, endIndex);
     return (
         <div className={styles.product}>
             {
-                props.data
-			.filter((product) => {
-			return props.search.toLowerCase() === ""
-			? product
-			: product.name.toLowerCase().includes(props.search);
-		})
+                currentProducts
 			.map((product) => (
                     <Product key={product._id} product={product}/>
                 ))
             }
+	<div className={styles.pagination}>
+        {currentPage > 1 && (
+          <button className={styles.prevbutton} onClick={handlePrevPage}>Previous</button>
+        )}
+        {currentPage < totalPages && (
+          <button className={styles.nextbutton} onClick={handleNextPage}>Next</button>
+        )}
+      </div>
         </div>
     )
 }

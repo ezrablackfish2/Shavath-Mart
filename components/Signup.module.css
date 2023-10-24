@@ -8,9 +8,11 @@
 .titleinput {
         position: relative;
         display: inline-block;
+	padding-left: 15px;
         left: 20%;
         width: 70%;
         border-width: 0.00000000001px;
+	border-radius: 15px 15px 15px 15px;
         margin-bottom: 5%;
 }
 .titleinput:hover {
@@ -24,11 +26,12 @@
 .loginbutton {
         position: relative;
         background-color: #108a00;
-        color: #ffffff;
         display: block;
         width: 50%;
         padding: 10px;
         left: 25%;
+	border: solid;
+	border-width: 0.000001px;
         border-radius: 15px 15px 15px 15px;
 }
 
