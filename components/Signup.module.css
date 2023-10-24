@@ -1,3 +1,15 @@
+.loggedlink {
+	position: relative;
+	margin: 15px;
+	top: 15px;
+}
+.loggedlink:hover {
+	background-color: #108a00;
+	color: #ffffff;
+	padding: 10px;
+	border-radius: 15px 15px 15px 15px;
+}
+
 .rederror {
 	position: relative;
 	display: inline-block;
@@ -25,7 +37,6 @@
 
 .loginbutton {
         position: relative;
-        background-color: #108a00;
         display: block;
         width: 50%;
         padding: 10px;

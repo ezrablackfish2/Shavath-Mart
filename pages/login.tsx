@@ -39,7 +39,6 @@ function Login({ user, token, formData, setFormData, loggedin, setlogin, respons
     if (user && token) {
       setSuccess(true);
       setlogin(true);
-      navigate('/home');
     }
 
     if (userRef.current) {
@@ -75,7 +74,6 @@ function Login({ user, token, formData, setFormData, loggedin, setlogin, respons
       localStorage.setItem('token', token);
       setSuccess(true);
       setlogin(true);
-      navigate('/');
     } catch (err: any) { // Use AxiosError here
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -116,6 +114,8 @@ function Login({ user, token, formData, setFormData, loggedin, setlogin, respons
           <br />
           <p>
             <button onClick={remover} className={styles.loginbutton}>Log Out</button>
+	    <a className={styles.loggedlink} href="/home"> Go to Home Page </a>
+	    <a className={styles.loggedlink} href="/upload"> Go to Upload Page </a>
           </p>
         </div>
       ) : (

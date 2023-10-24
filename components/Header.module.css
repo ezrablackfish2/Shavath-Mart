@@ -1,3 +1,7 @@
+.searchbutton {
+	width: 200px;;
+}
+
 .searchbuttonlink {
 	display: inline-block;
 	display: none;
