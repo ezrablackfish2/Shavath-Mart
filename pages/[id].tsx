@@ -26,7 +26,7 @@ interface Props {
 }
 const ItemDetail = ({ item, setlogin, setSuccess, search, setSearch }: Props) => {
 	const router = useRouter();
-	const description = ["wide", "cotton-made", "weight very light not less than 250g", "tight on the shoulders", "high quality ester", "all sizes L to XXL"]
+	const description = ["","", "", "", "", "", ""]
 const [review, setReview] = useState('');
 
     const handleSubmit = (event: any) => {
@@ -59,7 +59,7 @@ const [review, setReview] = useState('');
 		<p className={styles.detailcolor}>Color: {item.color}</p>
 		<p className={styles.detailprice}>Price: {item.price}</p>
 
-	  	<button className={styles.detailadd}>Availabilty </button>
+	  	<button className={styles.detailadd}>Available</button>
 	  	</div>
 	  	<div className={styles.detailreview}>
 	  	<h1 className={styles.detailreviewtitle}>Review</h1>

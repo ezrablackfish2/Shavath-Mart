@@ -136,6 +136,7 @@
 	width: 25%;
 	top: 6px;
 	position: relative;
+	display: none;
 }
 
 @media (max-width: 1024px) {

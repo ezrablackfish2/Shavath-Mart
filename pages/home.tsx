@@ -42,7 +42,7 @@ export default function Home({ shower, remover, user, token, setlogin, setSucces
         <SearchProduct search={search} setSearch={setSearch}/>
       </div>
       <div className="flex justify-center mb-28">
-	{error && <p> Ezra site request error code 77 </p>}
+	{error && <p> Shavath site request error code 404 page not found </p>}
 	{isLoading && <img src="/loading.gif" className={styles.loadhome} />}
         <Products data={products} search={search} />
       </div>

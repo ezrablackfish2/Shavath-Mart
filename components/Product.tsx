@@ -23,7 +23,7 @@ export default function Product(props: ProductProps) {
             <p className={styles.productname}>{props.product.name}</p>
             <p className={styles.productprice}>{props.product.price} ETB</p>
             <p className={styles.productcolor}>{props.product.color}</p>
-	    <button className={styles.detailadd}>Availability </button>
+	    <button className={styles.detailadd}>Available</button>
 	</Link>
         </div>
     )
