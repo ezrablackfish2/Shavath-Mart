@@ -17,6 +17,8 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
   const [price, setPrice] = useState<string>('');
   const [image, setImage] = useState<File | null>(null);
   const [color, setColor] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [availability, setAvailability] = useState<boolean>(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,6 +48,8 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
         formData.append('img', image);
       }
       formData.append('color', color);
+      formData.append('description', description);
+      formData.append('isAvailable', availability);
 
       onUpload(formData);
       handleNavigation('/home');
@@ -81,6 +85,17 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
         onChange={(e) => setPrice(e.target.value)}
         placeholder="Product Price $"
       />
+	<label className={styles.labeltitle}>Product Description</label>
+        <input
+        className={styles.titleinput}
+        type="string"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Product Descrition"
+      />
+
+	
+
       <label className={styles.labeltitle}>Product Color</label>
       <input
         className={styles.titleinput}
@@ -89,6 +104,16 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
         onChange={(e) => setColor(e.target.value)}
         placeholder="Product Color"
       />
+
+	<label className={styles.labeltitle}>Product Availability</label>
+        <input
+        className={styles.checkbox}
+        type="checkbox"
+        checked={availability}
+        onChange={(e) => setAvailability(e.target.checked)}
+        placeholder="Product Availability"
+      />
+
       <button className={styles.uploadbutton} type="submit">
         Upload
       </button>

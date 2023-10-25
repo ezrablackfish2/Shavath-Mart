@@ -53,13 +53,16 @@ const [review, setReview] = useState('');
 	  	<img className={styles.detailimage} src={imageURI} alt={item.name} />
 		<div className={styles.detailinfo}>
 		<h1 className={styles.detailtitle}>{item.name}</h1>
-	  	<ul className={styles.detaildescription}> Description
-		{description.map(item => <li className={styles.detaildescribeone}>{item}</li>)}
+	  	<ul className={styles.detaildescription}> Description	
 	  	</ul>
+		<p className={styles.detailcolor}>{item.description}</p>
 		<p className={styles.detailcolor}>Color: {item.color}</p>
 		<p className={styles.detailprice}>Price: {item.price}</p>
-
+		{ item.isAvailable ?
 	  	<button className={styles.detailadd}>Available</button>
+		:
+		null
+		}
 	  	</div>
 	  	<div className={styles.detailreview}>
 	  	<h1 className={styles.detailreviewtitle}>Review</h1>
