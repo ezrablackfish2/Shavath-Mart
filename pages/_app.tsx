@@ -27,6 +27,9 @@ function App({ Component, pageProps }: AppProps) {
     password1: '',
     password2: '',
   });
+  const [selectedService, setSelectedService] = useState<string>("Services");
+  const [selectedAbout, setSelectedAbout] = useState<string>("About");
+
   const [loggedin, setlogin] = useState<boolean>(false);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [VG, setVG] = useState<null | any>(null); // Replace 'any' with the appropriate type
@@ -49,12 +52,12 @@ function App({ Component, pageProps }: AppProps) {
       setIsAuthenticated(storedIsAuthenticated);
     }
   }, []);
-      const { products, error, isLoading } = useProducts({ user: user, token: token });
-
+	const { products, error, isLoading } = useProducts({ user: user, token: token });
+	
 
   return (
     <>
-      <Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser} products={products} error={error} isLoading={isLoading} search={search} setSearch={setSearch}/>
+      <Component {...pageProps} shower={shower} remover={remover} user={user} token={token} formData={loginData} setFormData={setLoginData} loggedin={loggedin} setlogin={setlogin} setToken={setToken} setUser={setUser} products={products} error={error} isLoading={isLoading} search={search} setSearch={setSearch} selectedService={selectedService} selectedAbout={selectedAbout} setSelectedService={setSelectedService} setSelectedAbout={setSelectedAbout}/>
     </>
   );
 }

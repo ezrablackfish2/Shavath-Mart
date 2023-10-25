@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../components/Upload.module.css';
+import style from '../components/Signup.module.css';
 import { useRouter } from 'next/router';
 
 interface UploadFormProps {
@@ -20,6 +21,7 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
   const [description, setDescription] = useState<string>('');
   const [availability, setAvailability] = useState<boolean>(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [uploadSuccess, setUploadSuccess] = useState(false)
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] as File | undefined;
@@ -52,12 +54,19 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
       formData.append('isAvailable', availability);
 
       onUpload(formData);
-      handleNavigation('/home');
+      setUploadSuccess(true);
     } else {
       handleNavigation('/login');
     }
   };
 
+function remover() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    setSuccess(false);
+    setlogin(false);
+  }
+if (uploadSuccess == false) {
   return (
     <form className={styles.uploadform} onSubmit={handleSubmit}>
       <label className={styles.labeltitle}>Product Name</label>
@@ -115,11 +124,24 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
       />
 
       <button className={styles.uploadbutton} type="submit">
-        Upload
+        Upload Product
       </button>
 
     </form>
-  );
+  ); }
+else {
+return (
+        <div className={style.login}>
+          <h1 className={style.logintitle}>Upload Success !</h1>
+          <br />
+          <p>
+            <button onClick={remover} className={style.loginbutton}>Log Out</button>
+            <a className={style.loggedlink} href="/home"> Go to Home Page </a>
+            <a className={style.loggedlink} href="/upload"> Upload Another Product </a>
+          </p>
+        </div>
+)
+}
 };
 
 export default UploadForm;

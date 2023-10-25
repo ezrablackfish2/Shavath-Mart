@@ -22,7 +22,7 @@ interface Props {
   setSearch: any;
 }
 
-function Login({ user, token, formData, setFormData, loggedin, setlogin, response, search, setSearch }: Props) {
+function Login({ user, token, formData, setFormData, loggedin, setlogin, response, search, setSearch, setSelectedAbout, setSelectedService, selectedAbout, selectedService }: Props) {
   const { setAuth } = useContext(AuthContext);
   const userRef = useRef<HTMLInputElement>(null);
   const errRef = useRef<HTMLParagraphElement>(null);
@@ -63,7 +63,7 @@ function Login({ user, token, formData, setFormData, loggedin, setlogin, respons
     try {
       const response = await axios.post('http://localhost:3000/api/auth/login', formData);
       console.log(response);
-      const token = response?.data?.user?.password;
+      const token = response?.data?.token;
       console.log(token);
       console.log(formData.username);
       console.log(formData.password);
@@ -106,7 +106,9 @@ function Login({ user, token, formData, setFormData, loggedin, setlogin, respons
         href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Aguafina+Script&family=Amatic+SC&family=Barrio&family=Bellota:wght@300&family=Black+Ops+One&family=Caveat&family=Chakra+Petch:ital,wght@1,300&family=Cinzel&family=Cookie&family=Croissant+One&family=Dancing+Script&family=Faster+One&family=Fuggles&family=Gugi&family=Hammersmith+One&family=Homemade+Apple&family=Itim&family=Lilita+One&family=Montserrat+Alternates:wght@100&family=Nothing+You+Could+Do&family=Orbitron&family=Playball&family=Rajdhani&family=Satisfy&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&family=Space+Mono&family=Tilt+Prism&family=Yellowtail&display=swap"
         rel="stylesheet"
       />
-      <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch}/>
+
+
+      <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch} selectedService={selectedService} selectedAbout={selectedAbout} setSelectedService={setSelectedService} setSelectedAbout={setSelectedAbout}/>
 
       {success ? (
         <div className={styles.login}>

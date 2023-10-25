@@ -7,7 +7,7 @@ interface Props {
 }
 
 function AboutSelector({ setSelectedAbout, selectedAbout }: Props) {
-  const abouts = ["Shavath Mart", "Our History", "Service Offering", "Partners and Clients", "Contact Us"]
+  const abouts = ["Shavath Mart", "Location", "Contact Us", "Home"]
   const [isHovered, setIsHovered] = useState(false);
 
   function handleOptionChange(event: ChangeEvent<HTMLSelectElement>) {

@@ -15,11 +15,13 @@ interface HeaderProps {
   setSuccess: (value: any) => void;
   search: any;
   setSearch: any;
+  selectedAbout: any;
+  selectedServcie: any;
+  setSelectedAbout: (value: any) => void;
+  setSelectedService: (value: any) => void;
 }
 
-export default function Header({ setlogin, setSuccess, search, setSearch }: HeaderProps) {
-  const [selectedService, setSelectedService] = useState("Services");
-  const [selectedAbout, setSelectedAbout] = useState("About");
+export default function Header({ setlogin, setSuccess, search, setSearch, selectedAbout, selectedService, setSelectedAbout, setSelectedService }: HeaderProps) {
   const [selectedNews, setSelectedNews] = useState("News");
   const [selectedCurrency, setSelectedCurrency] = useState("Currency");
   const [selectOpen, setSelectOpen] = useState(false);
@@ -48,7 +50,7 @@ export default function Header({ setlogin, setSuccess, search, setSearch }: Head
     <>
       <div className={styles.header}>
         <div className={styles.headerphone}>
-          <Link href="/login">
+          <button onClick={() => setSelectedAbout("Contact Us")}>
             <Image
               className={styles.headerphoneimage}
               src={"/phone.png"}
@@ -57,10 +59,10 @@ export default function Header({ setlogin, setSuccess, search, setSearch }: Head
 	      height={0}
             />
             7944
-          </Link>
+          </button>
         </div>
         <div className={styles.headergmail}>
-          <button onClick={remover}>
+          <Link href="mailto:shavathmart@email.com">
             <Image
               className={styles.headergmailimage}
               src={"/gmail.png"}
@@ -69,7 +71,7 @@ export default function Header({ setlogin, setSuccess, search, setSearch }: Head
 	      height = {0}
             />
             shavath@gmail
-          </button>
+          </Link>
         </div>
         <div className={styles.headermedia}>
           {social_handles.map(({ icon, link }) => (

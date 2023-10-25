@@ -14,7 +14,7 @@ interface UploadProps {
   setSearch: any;
 }
 
-const Upload: React.FC<UploadProps> = ({ user, token, setSuccess, setlogin, search, setSearch }) => {
+const Upload: React.FC<UploadProps> = ({ user, token, setSuccess, setlogin, search, setSearch, setSelectedAbout, setSelectedService, selectedAbout, selectedService }) => {
   return (
     <>
       <link
@@ -24,7 +24,10 @@ const Upload: React.FC<UploadProps> = ({ user, token, setSuccess, setlogin, sear
       <Head>
         <title>Upload Data</title>
       </Head>
-      <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch}/>
+
+      <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch} selectedService={selectedService} selectedAbout={selectedAbout} setSelectedService={setSelectedService} setSelectedAbout={setSelectedAbout}/>
+
+
       <UploadPage user={user} token={token} />
     </>
   );

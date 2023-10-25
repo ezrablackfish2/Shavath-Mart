@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 export default function Footer() {
 
 	  const initialData = [
-    { name: 'Customer Service 1', quickLink: 'Link 1', contact: 'Contact 1' },
+    { name: ['Cloth', 'Cosmotics', 'Accessory', 'Jewlery', 'Bag'], quickLink: ['09000000', '09111111', '09222222', 'shavath@gmail.com', 'shavath@yahoo.com'], contact: 'Contact 1' },
   ];
 
 
@@ -34,12 +34,21 @@ export default function Footer() {
       <tbody className={styles.tablebody}>
         {data.map((item, index) => (
           <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.quickLink}</td>
+            <td>{item.name.map((name) => 
+		(
+			<div className={styles.listing}>{name}</div>
+		)
+		)}</td>
+            <td>{item.quickLink.map((link) =>
+		(
+			<div className={styles.listing}>{link}</div>
+		)
+		
+		)}</td>
             <td>{social_handles.map(({name, icon, link})=> (
-                        <div className="flex my-2">
-                            <img className={styles.footerimage} src={icon} />
-                            <Link className="ml-2 text-white" href={link}>{name}</Link>
+                        <div className="flex my-1">
+                            <Link href={link}><img className={styles.footerimage} src={icon} /></Link>
+                            <Link className={styles.footerlinking} href={link}>{name}</Link>
                         </div>
                     ))}
 	    </td>

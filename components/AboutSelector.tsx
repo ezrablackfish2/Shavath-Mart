@@ -9,7 +9,7 @@ interface Props {
 }
 
 function AboutSelector ( {setSelectedAbout, selectedAbout, selectedDrop, setSelectedDrop} : Props) {
-	const services = ["Shavath Mart", "Our History", "Service Offering", "Partners and Clients", "Contact Us"]
+	const services = ["Shavath Mart", "Location", "Contact Us"]
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleDropdown = () => {
     		setIsOpen(!isOpen);

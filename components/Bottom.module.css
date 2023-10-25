@@ -66,3 +66,8 @@
 		width: 70px;
 	}
 }
+@media (max-width: 280px) {
+	.bottomtitle {
+		font-size: 150%;
+	}
+}

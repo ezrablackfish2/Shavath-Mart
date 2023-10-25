@@ -16,6 +16,8 @@ import styles from "../components/Detail.module.css";
 import style from "../components/Review.module.css";
 import useProducts from "../hooks/useProducts";
 import axios from "axios";
+import apiClient from "../api/api-client-axios";
+import styl from "../components/Upload.module.css";
 
 interface Props {
 	item: any;
@@ -23,11 +25,18 @@ interface Props {
 	setSuccess: any;
 	search: any;
 	setSearch: any;
+	token: any;
+	selectedService: any;
+	setSelectedService: any;
+	selectedAbout: any;
+	setSelectedAbout: any;
 }
-const ItemDetail = ({ item, setlogin, setSuccess, search, setSearch }: Props) => {
+const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token, setSelectedAbout, setSelectedService, selectedAbout, selectedService }: Props) => {
 	const router = useRouter();
-	const description = ["","", "", "", "", "", ""]
-const [review, setReview] = useState('');
+	  const navigate = (route: string) => {
+		router.push(route);
+		};
+	const [review, setReview] = useState('');
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -42,57 +51,232 @@ const [review, setReview] = useState('');
 	const base64Image = Buffer.from(imageData).toString('base64');
 	const imageURI = `data:image/png;base64,${base64Image}`;
 
-  return (
-    <>
-	          <Head>
-        <title>{item.name}</title>
-        </Head>
-        <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Aguafina+Script&family=Amatic+SC&family=Barrio&family=Bellota:wght@300&family=Black+Ops+One&family=Caveat&family=Chakra+Petch:ital,wght@1,300&family=Cinzel&family=Cookie&family=Croissant+One&family=Dancing+Script&family=Faster+One&family=Fuggles&family=Gugi&family=Hammersmith+One&family=Homemade+Apple&family=Itim&family=Lilita+One&family=Montserrat+Alternates:wght@100&family=Nothing+You+Could+Do&family=Orbitron&family=Playball&family=Rajdhani&family=Satisfy&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&family=Space+Mono&family=Tilt+Prism&family=Yellowtail&display=swap" rel="stylesheet" />
-            <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch} />
-	  	<div className={styles.productdetail}>
-	  	<img className={styles.detailimage} src={imageURI} alt={item.name} />
-		<div className={styles.detailinfo}>
-		<h1 className={styles.detailtitle}>{item.name}</h1>
-	  	<ul className={styles.detaildescription}> Description	
-	  	</ul>
-		<p className={styles.detailcolor}>{item.description}</p>
-		<p className={styles.detailcolor}>Color: {item.color}</p>
-		<p className={styles.detailprice}>Price: {item.price}</p>
-		{ item.isAvailable ?
-	  	<button className={styles.detailadd}>Available</button>
-		:
-		null
-		}
-	  	</div>
-	  	<div className={styles.detailreview}>
-	  	<h1 className={styles.detailreviewtitle}>Review</h1>
-	  	<p className={styles.detailreviewcontent}>
-	  	There are no reviews yet.
-		Be the first to review {item.name} Your email address will not be published. Required fields are marked *
-	  	</p>
-	  	</div>
-        	<div className={styles.review}> Add Review </div>
-	  	<div className={style.reviewall}>
-                <h2 className={style.detailreviewtitle}>Your Review</h2>
-                <form onSubmit={handleSubmit}>
-                    <textarea
-	  		className={style.area}
-                        value={review}
-                        onChange={(e) => setReview(e.target.value)}
-                        placeholder="Write your review here"
-                        required
-                    />
-                    <div>
-                        <button className={style.reviewbutton} type="submit">Submit</button>
-                    </div>
-                </form>
-            </div>
+	const formData = {
+	_id : item._id,
+//	name: item.name,
+//	price: item.price,
+//	img: item.img,
+//	description: item.description,
+//	isAvailable: item.isAvailable,
+	}
 
-	  	<Footer />
+	function ProductRemover() {
+		 apiClient.post(`delete/` ,
+                        {
+                                headers: {
+                                'Content-Type': 'application/json',
+                                Authorization: `Bearer ${token}`,
+                        },
+			formData,
 
-	  	</div>
-    </>
-  );
+                                })
+			   .then(res =>  {
+				console.log("successfully deleted", res.data);
+				navigate("/home");
+			})
+                        .catch(err =>{
+				console.log(err.message)
+			});
+	}
+
+
+
+//  const [formData2, setFormData] = useState([]);
+  const [name, setName] = useState<string>('');
+  const [price, setPrice] = useState<string>('');
+  const [image, setImage] = useState<File | null>(null);
+  const [color, setColor] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [availability, setAvailability] = useState<boolean>(false);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] as File | undefined;
+
+    if (file) {
+      setImage(file);
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImage(null);
+      setImagePreview(null);
+    }
+  };
+
+  const handleUpdate = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (user && token) {
+//	setFormData({'_id': item._id});
+//	setFormData({'name': "ezra"});
+//	const formData2 = new FormData();	
+//      formData2.append('_id', item._id);
+//      formData2.append('name', name);
+//      formData2.append('price', parseFloat(price).toFixed(2));
+//      if (image) {
+//        formData2.append('img', image);
+//      }
+//      formData2.append('color', color);
+//      formData2.append('description', description);
+//      formData2.append('isAvailable', availability);
+
+        const formData2 = {
+        id : item._id,
+      name: "kobra",
+      price: item.price,
+      img: item.img,
+      description: item.description,
+      isAvailable: item.isAvailable,
+        }
+      ProductUpdater(formData2);
+//      navigate('/home');
+    } else {
+//      navigate('/login');
+    }
+  };
+
+
+	function ProductUpdater(formData2) {
+	console.log(formData2.id);
+		 apiClient.post(`update/` ,
+                        {
+                                headers: {
+                                'Content-Type': 'application/json',
+                                Authorization: `Bearer ${token}`,
+                        },
+			formData2,
+
+                                })
+			   .then(res =>  {
+				console.log("successfully update", res.data);
+			})
+                        .catch(err =>{
+				console.log(err.message)
+			});
+		
+	}
+
+
+return (
+  <>
+    <Head>
+      <title>{item.name}</title>
+    </Head>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Aguafina+Script&family=Amatic+SC&family=Barrio&family=Bellota:wght@300&family=Black+Ops+One&family=Caveat&family=Chakra+Petch:ital,wght@1,300&family=Cinzel&family=Cookie&family=Croissant+One&family=Dancing+Script&family=Faster+One&family=Fuggles&family=Gugi&family=Hammersmith+One&family=Homemade+Apple&family=Itim&family=Lilita+One&family=Montserrat+Alternates:wght@100&family=Nothing+You+Could+Do&family=Orbitron&family=Playball&family=Rajdhani&family=Satisfy&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&family=Space+Mono&family=Tilt+Prism&family=Yellowtail&display=swap" rel="stylesheet" />
+
+      <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch} selectedService={selectedService} selectedAbout={selectedAbout} setSelectedService={setSelectedService} setSelectedAbout={setSelectedAbout}/>
+
+	<div className={styles.productdetail}>
+      <img className={styles.detailimage} src={imageURI} alt={item.name} />
+      <div className={styles.detailinfo}>
+        <h1 className={styles.detailtitle}>{item.name}</h1>
+        <ul className={styles.detaildescription}> Description	
+        </ul>
+        <p className={styles.detailcolor}>{item.description}</p>
+        <p className={styles.detailcolor}>Color: {item.color}</p>
+        <p className={styles.detailprice}>Price: {item.price}</p>
+        {item.isAvailable ? (
+          <button className={styles.detailadd}>Available</button>
+        ) : null}
+      </div>
+      {user && token ? (
+        <>
+	<div className={styl.uploadbody}>
+      <h1 className={styl.uploadtitle}>Update Data</h1>
+	<form className={styl.uploadform} onSubmit={handleUpdate}>
+      <label className={styl.labeltitle}>Product Name</label>
+      <input
+        className={styl.titleinput}
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Product Name"
+      />
+      <label className={styl.labeltitle}>Product Image</label>
+      <input
+        className={styl.titleinput}
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+        placeholder="Put Image"
+      />
+      {imagePreview && <img src={imagePreview} alt="Image Preview" className={styl.previewImage} />}
+      <label className={styl.labeltitle}>Product Price</label>
+      <input
+        className={styl.titleinput}
+        type="number"
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+        placeholder="Product Price $"
+      />
+	<label className={styl.labeltitle}>Product Description</label>
+        <input
+        className={styl.titleinput}
+        type="string"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Product Descrition"
+      />
+
+	
+
+      <label className={styl.labeltitle}>Product Color</label>
+      <input
+        className={styl.titleinput}
+        type="text"
+        value={color}
+        onChange={(e) => setColor(e.target.value)}
+        placeholder="Product Color"
+      />
+
+	<label className={styl.labeltitle}>Product Availability</label>
+        <input
+        className={styl.checkbox}
+        type="checkbox"
+        checked={availability}
+        onChange={(e) => setAvailability(e.target.checked)}
+        placeholder="Product Availability"
+      />
+
+      <button className={styl.uploadupdatebutton} type="submit">
+        Update Product
+      </button>
+          <button className={styl.uploaddeletebutton} onClick={ProductRemover} >Delete Product</button>
+    </form>
+	</div>
+        </>
+      ) : null}
+      <div className={styles.detailreview}>
+        <h1 className={styles.detailreviewtitle}>Review</h1>
+        <p className={styles.detailreviewcontent}>
+          There are no reviews yet. Be the first to review {item.name} Your email address will not be published. Required fields are marked *
+        </p>
+      </div>
+      <div className={styles.review}> Add Review </div>
+      <div className={style.reviewall}>
+        <h2 className={style.detailreviewtitle}>Your Review</h2>
+        <form onSubmit={handleSubmit}>
+          <textarea
+            className={style.area}
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
+            placeholder="Write your review here"
+            required
+          />
+          <div>
+            <button className={style.reviewbutton} type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      <Footer />
+    </div>
+  </>
+);
+
+
 };
 
 // async function fetchData() {
@@ -111,7 +295,7 @@ async function fetchData() {
     return data;
   } catch (error) {
     console.error(error);
-    throw error; // Optional: Rethrow the error for higher-level error handling
+    throw error; 
   }
 }
 

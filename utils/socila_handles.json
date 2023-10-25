@@ -6,7 +6,7 @@
   },
   {
     "name": "Shavath Mart Instagram",
-    "link": "https://www.instagram.com/shavathm/?igshid=NzZlODBkYWE4Ng%3D%3D",
+    "link": "https://instagram.com/shavathmart?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==",
     "icon": "/instagram.svg"
   },
   {
@@ -16,7 +16,12 @@
   },
   {
     "name": "Shavath Mart Whatsapp",
-    "link": "https://wa.me/251912243671",
+    "link": "https://whatsapp.com/channel/0029VaDJT7iFCCoOZwGIRQ0D",
     "icon": "/whatsapp.svg"
+  },
+  {
+	  "name": "Shavath Mart Tiktok",
+	  "link": "https://www.tiktok.com/@shavathmart?_r",
+	  "icon": "/tiktok.png"
   }
 ]
