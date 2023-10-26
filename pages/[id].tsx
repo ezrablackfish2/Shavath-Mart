@@ -56,12 +56,15 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 	if (response.status === 200) {
 		console.log('Review submitted successfully');
+		console.log(reviewData);
 		setReviewSuccess(true);
 	} else {
 		console.error('Review submission failed');
+		console.log(reviewData);
 	}
 	} catch (error) {
 		console.error('Network error:', error);
+		console.log(reviewData);
 	}	
     };
 
