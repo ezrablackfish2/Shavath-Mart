@@ -305,7 +305,7 @@ return (
         <h1 className={styles.detailreviewtitle}>Reviews</h1>
         <div className={styles.detailreviewcontent}>
 	{reviewFetch[0] ?
-	<ol className={styles.revieworder}>{reviewFetch.map(data => <li className={styles.reviewlists}>⚫ {data._id != item._id ? data.message : null}</li>)}</ol>
+	<ol className={styles.revieworder}>{reviewFetch.map(data => <li className={styles.reviewlists}> {data.productId == item._id ?<span> ⚫ {data.message} </span> : null}</li>)}</ol>
 	:
           <div>There are no reviews yet. Be the first to review {item.name} Your email address will not be published. Required fields are marked *</div>
 	}
