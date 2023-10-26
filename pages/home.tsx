@@ -46,7 +46,7 @@ export default function Home({ shower, remover, user, token, setlogin, setSucces
         <SearchProduct search={search} setSearch={setSearch}/>
       </div>
       <div className="flex justify-center mb-28">
-	{error && <p> Shavath site request error code 404 page not found </p>}
+	{error && <p className={styles.rederror}> Shavath site request error code 404 page not found </p>}
 	{isLoading && <img src="/loading.gif" className={styles.loadhome} />}
 	{ selectedAbout === "Shavath Mart" ?
 	<div className={styles.about}>

@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 export default function Footer() {
 
 	  const initialData = [
-    { name: ['Cloth', 'Cosmotics', 'Accessory', 'Jewlery', 'Bag'], quickLink: ['+251913657294', '+251912243671', 'shavath@gmail.com', 'shavath@yahoo.com'], contact: 'Contact 1' },
+    { name: ['Cloth', 'Cosmotics', 'Accessory', 'Jewlery', 'Bag'], quickLink: ['+251913657294', '+251912243671', 'hiwimehdi@gmail.com'], contact: 'Contact 1' },
   ];
 
 

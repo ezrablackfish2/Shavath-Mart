@@ -1,3 +1,13 @@
+.rederror {
+	position: absolute;
+	display: inline-block;
+	color: #ff0000;
+	left: 20%;
+	width: 60%;
+	font-family: 'Itim';
+	font-size: 200%;
+}
+
 .abouttitle {
 	position: relative;
 	display: inline-block;

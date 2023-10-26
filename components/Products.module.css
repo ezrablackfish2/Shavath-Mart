@@ -1,3 +1,16 @@
+.reviewlists {
+	position: relative;
+	display: inline-block;
+	font-family: 'Rajdhani';
+	font-family: 'itim';
+
+}
+
+.revieworder {
+	position: relative;
+	display: inline-block;
+}
+
 .pagination {
 	position: relative;
 	display: block;	

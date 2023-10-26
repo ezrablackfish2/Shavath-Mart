@@ -40,6 +40,30 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 		router.push(route);
 		};
 	const [review, setReview] = useState('');
+	const [reviewFetch, setReviewFetch] = useState([])
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/api/reviews/`, {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        console.log('Review fetched successfully');
+        setReviewFetch(response.data); // Assuming you want to set the response data
+        console.log(response.data);
+      } catch (error) {
+        console.error('Network error:', error);
+        console.log(reviewFetch); // Assuming 'reviewFetch' is defined somewhere
+      }
+    };
+
+    fetchReviews();
+  }, []);
+
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -112,7 +136,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
   const [description, setDescription] = useState<string>('');
   const [availability, setAvailability] = useState<boolean>(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const [category, setCategory] = useState<string>('Category');
+  const [category, setCategory] = useState<string>('All');
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] as File | undefined;
@@ -155,7 +179,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
       color: color != '' ? color: item.color,
       category: category != '' ? category : item.category,
       description: description != '' ? description : item.description,
-      isAvailable: availability != '' ? availability :  item.isAvailable,
+      isAvailable: availability,
         }
       ProductUpdater(formData2);
 //      navigate('/home');
@@ -166,7 +190,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
 	function ProductUpdater(formData2) {
-	console.log(formData2.id);
+	console.log(formData2);
 		 apiClient.post(`update/` ,
 			formData2,
                         {
@@ -203,7 +227,7 @@ return (
         </ul>
         <p className={styles.detailcolor}>{item.description}</p>
         <p className={styles.detailcolor}>Color: {item.color}</p>
-        <p className={styles.detailprice}>Price: {item.price}</p>
+        <p className={styles.detailprice}>Price: {item.price} ETB</p>
         {item.isAvailable ? (
           <button className={styles.detailadd}>Available</button>
         ) : null}
@@ -278,11 +302,14 @@ return (
         </>
       ) : null}
       <div className={styles.detailreview}>
-        <h1 className={styles.detailreviewtitle}>Review</h1>
-        <p className={styles.detailreviewcontent}>
-	
-          There are no reviews yet. Be the first to review {item.name} Your email address will not be published. Required fields are marked *
-        </p>
+        <h1 className={styles.detailreviewtitle}>Reviews</h1>
+        <div className={styles.detailreviewcontent}>
+	{reviewFetch[0] ?
+	<ol className={styles.revieworder}>{reviewFetch.map(data => <li className={styles.reviewlists}>⚫ {data._id != item._id ? data.message : null}</li>)}</ol>
+	:
+          <div>There are no reviews yet. Be the first to review {item.name} Your email address will not be published. Required fields are marked *</div>
+	}
+        </div>
       </div>
       <div className={styles.review}> Add Review </div>
       <div className={style.reviewall}>

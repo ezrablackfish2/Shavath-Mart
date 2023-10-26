@@ -1,3 +1,20 @@
+.reviewlists {
+        position: relative;
+        display: block;
+        font-family: 'itim';
+        font-family: 'Rajdhani';
+	font-size: 100%;
+	margin-bottom: 15px;
+
+}
+
+.revieworder {
+        position: relative;
+        display: inline-block;
+}
+
+
+
 .detailreviewcontent {
 	font-family: 'Gugi', cursive;
 }
