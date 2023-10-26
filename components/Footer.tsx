@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 export default function Footer() {
 
 	  const initialData = [
-    { name: ['Cloth', 'Cosmotics', 'Accessory', 'Jewlery', 'Bag'], quickLink: ['+251913657294', '+251912243671', 'hiwimehdi@gmail.com'], contact: 'Contact 1' },
+    { name: ["Shoes", "Cosmetics", "Accessories", "Jewelries", "Bags"], quickLink: ['+251913657294', '+251912243671', 'hiwimehdi@gmail.com'], contact: 'Contact 1' },
   ];
 
 
@@ -26,9 +26,9 @@ export default function Footer() {
 		<table className={styles.table}>
       <thead className={styles.tablehead}>
         <tr>
-          <th>Customer Service</th>
-          <th>Quick Link</th>
-          <th>Contact</th>
+          <th>Services</th>
+          <th>Quick Links</th>
+          <th>Contacts</th>
         </tr>
       </thead>
       <tbody className={styles.tablebody}>

@@ -7,7 +7,7 @@ interface Props {
 }
 
 function ServiceSelector({ setSelectedService, selectedService }: Props) {
-  const services = ["All", "Cloth", "Cosmostics", "Accessory", "Jewlery", "Bag"];
+  const services = ["All", "Shoes", "Cosmetics", "Accessories", "Jewelries", "Bags"];
   const [isHovered, setIsHovered] = useState(false);
 
   function handleOptionChange(event: ChangeEvent<HTMLSelectElement>) {
