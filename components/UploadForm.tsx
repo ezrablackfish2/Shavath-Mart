@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../components/Upload.module.css';
 import style from '../components/Signup.module.css';
 import { useRouter } from 'next/router';
+import ServiceSelector from '../components/ServiceSelector2';
 
 interface UploadFormProps {
   onUpload: (formData: FormData) => void;
@@ -18,6 +19,7 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
   const [price, setPrice] = useState<string>('');
   const [image, setImage] = useState<File | null>(null);
   const [color, setColor] = useState<string>('');
+  const [category, setCategory] = useState<string>('Category');
   const [description, setDescription] = useState<string>('');
   const [availability, setAvailability] = useState<boolean>(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
@@ -50,9 +52,11 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
         formData.append('img', image);
       }
       formData.append('color', color);
+      formData.append('category', category);
       formData.append('description', description);
       formData.append('isAvailable', availability);
-
+	
+	console.log(category);
       onUpload(formData);
       setUploadSuccess(true);
     } else {
@@ -113,6 +117,9 @@ if (uploadSuccess == false) {
         onChange={(e) => setColor(e.target.value)}
         placeholder="Product Color"
       />
+      
+	<label className={styles.labeltitle}>Product Category</label>
+	<div className={styles.titleinput}> <ServiceSelector setSelectedService={setCategory} selectedService={category}/></div>
 
 	<label className={styles.labeltitle}>Product Availability</label>
         <input

@@ -18,6 +18,9 @@ import useProducts from "../hooks/useProducts";
 import axios from "axios";
 import apiClient from "../api/api-client-axios";
 import styl from "../components/Upload.module.css";
+import ServiceSelector from "../components/ServiceSelector2";
+
+
 
 interface Props {
 	item: any;
@@ -41,8 +44,8 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
     const handleSubmit = (event: any) => {
         event.preventDefault();
 	const reviewData = {
-		_id: item._id,
-		review: review,
+		productId: item._id,
+		message: review,
 	};
 	try {
 	const response = axios.post(`http://localhost:3000/api/review/`, reviewData,
@@ -54,14 +57,8 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 			}
 		);
 
-	if (response.status === 200) {
 		console.log('Review submitted successfully');
 		console.log(reviewData);
-		setReviewSuccess(true);
-	} else {
-		console.error('Review submission failed');
-		console.log(reviewData);
-	}
 	} catch (error) {
 		console.error('Network error:', error);
 		console.log(reviewData);
@@ -78,7 +75,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 	const imageURI = `data:image/png;base64,${base64Image}`;
 
 	const formData = {
-	_id : item._id,
+	id : item._id,
 	name: item.name,
 	price: item.price,
 //	img: item.img,
@@ -115,6 +112,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
   const [description, setDescription] = useState<string>('');
   const [availability, setAvailability] = useState<boolean>(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [category, setCategory] = useState<string>('Category');
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] as File | undefined;
@@ -151,12 +149,13 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
         const formData2 = {
         id : item._id ,
-      name: name ? name: item.name,
-      price: price ? price : item.price,
-      img: image ? image : item.img,
-      color: color ? color: item.color,
-      description: description ? description : item.description,
-      isAvailable: availability ? availability :  item.isAvailable,
+      name: name != '' ? name: item.name,
+      price: price != '' ? price : item.price,
+      img: image != '' ? image : item.img,
+      color: color != '' ? color: item.color,
+      category: category != '' ? category : item.category,
+      description: description != '' ? description : item.description,
+      isAvailable: availability != '' ? availability :  item.isAvailable,
         }
       ProductUpdater(formData2);
 //      navigate('/home');
@@ -167,7 +166,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
 	function ProductUpdater(formData2) {
-	console.log(formData2);
+	console.log(formData2.id);
 		 apiClient.post(`update/` ,
 			formData2,
                         {
@@ -258,6 +257,8 @@ return (
         onChange={(e) => setColor(e.target.value)}
         placeholder="Product Color"
       />
+	<label className={styl.labeltitle}>Product Category</label>
+        <div className={styl.titleinput}> <ServiceSelector setSelectedService={setCategory} selectedService={category}/></div>
 
 	<label className={styl.labeltitle}>Product Availability</label>
         <input
@@ -279,6 +280,7 @@ return (
       <div className={styles.detailreview}>
         <h1 className={styles.detailreviewtitle}>Review</h1>
         <p className={styles.detailreviewcontent}>
+	
           There are no reviews yet. Be the first to review {item.name} Your email address will not be published. Required fields are marked *
         </p>
       </div>

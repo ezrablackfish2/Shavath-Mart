@@ -28,8 +28,8 @@ export default function Products(props: ProductsProp) {
 					if (props.selectedService == "Services" || props.selectedService == "All") {
 				return(product);
 					}
-					if (product.name == props.selectedService) {
-		return(product.name.includes(props.selectedService))
+					if (product.category == props.selectedService) {
+		return(product.category.includes(props.selectedService))
 }
 					});
 	const totalProducts = filteredProducts.length;

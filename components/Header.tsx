@@ -58,7 +58,7 @@ export default function Header({ setlogin, setSuccess, search, setSearch, select
 	      width={0}
 	      height={0}
             />
-            7944
+            +251913657294
           </button>
         </div>
         <div className={styles.headergmail}>
@@ -90,9 +90,9 @@ export default function Header({ setlogin, setSuccess, search, setSearch, select
         </div>
       </div>
       <div className={styles.navigationbar}>
-        <Link href="/home">
+        <a href="/home">
           <img className={styles.logo} src="/logo.jpg" alt="Logo Image"/>
-        </Link>
+        </a>
         <Search search={search} setSearch={setSearch} />
       </div>
       <div className={!isSticky ? styles.dropdowns : styles.dropdownsfixed}>
