@@ -20,7 +20,12 @@ export default function Product(props: ProductProps) {
             className={styles.products}>
 	<Link href={`/${props.product._id}`}>
             <img className={styles.productimage} src={imageURI}/>
-            <p className={styles.productname}>{props.product.name}</p>
+<p className={styles.productname}>
+  {props.product.name.length > 17
+    ? `${props.product.name.slice(0, 17)}...`
+    : props.product.name}
+</p>
+	
             <p className={styles.productprice}>{props.product.price} ETB</p>
             <p className={styles.productcolor}>{props.product.color}</p>
 	       { props.product.isAvailable ?
