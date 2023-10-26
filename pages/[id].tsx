@@ -40,6 +40,29 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
+	const reviewData = {
+		_id: item._id,
+		review: review,
+	};
+	try {
+	const response = axios.post(`http://localhost:3000/api/review/`, reviewData,
+        		{
+				headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`,
+			},
+			}
+		);
+
+	if (response.status === 200) {
+		console.log('Review submitted successfully');
+		setReviewSuccess(true);
+	} else {
+		console.error('Review submission failed');
+	}
+	} catch (error) {
+		console.error('Network error:', error);
+	}	
     };
 
 
@@ -53,8 +76,8 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 	const formData = {
 	_id : item._id,
-//	name: item.name,
-//	price: item.price,
+	name: item.name,
+	price: item.price,
 //	img: item.img,
 //	description: item.description,
 //	isAvailable: item.isAvailable,
@@ -62,12 +85,12 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 	function ProductRemover() {
 		 apiClient.post(`delete/` ,
+			formData,
                         {
                                 headers: {
                                 'Content-Type': 'application/json',
                                 Authorization: `Bearer ${token}`,
                         },
-			formData,
 
                                 })
 			   .then(res =>  {
@@ -124,12 +147,13 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 //      formData2.append('isAvailable', availability);
 
         const formData2 = {
-        id : item._id,
-      name: "kobra",
-      price: item.price,
-      img: item.img,
-      description: item.description,
-      isAvailable: item.isAvailable,
+        id : item._id ,
+      name: name ? name: item.name,
+      price: price ? price : item.price,
+      img: image ? image : item.img,
+      color: color ? color: item.color,
+      description: description ? description : item.description,
+      isAvailable: availability ? availability :  item.isAvailable,
         }
       ProductUpdater(formData2);
 //      navigate('/home');
@@ -140,14 +164,14 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
 	function ProductUpdater(formData2) {
-	console.log(formData2.id);
+	console.log(formData2);
 		 apiClient.post(`update/` ,
+			formData2,
                         {
                                 headers: {
                                 'Content-Type': 'application/json',
                                 Authorization: `Bearer ${token}`,
                         },
-			formData2,
 
                                 })
 			   .then(res =>  {

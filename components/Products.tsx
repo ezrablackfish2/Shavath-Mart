@@ -12,6 +12,7 @@ interface Product {
 type ProductsProp = {
 	data : Product[];
 	search: any;
+	selectedService: any;
 }
 
 export default function Products(props: ProductsProp) {
@@ -22,6 +23,14 @@ export default function Products(props: ProductsProp) {
       					    return props.search.toLowerCase() === ""
 					    ? product
 					    : product.name.toLowerCase().includes(props.search);
+					})
+					   .filter((product) => {
+					if (props.selectedService == "Services" || props.selectedService == "All") {
+				return(product);
+					}
+					if (product.name == props.selectedService) {
+		return(product.name.includes(props.selectedService))
+}
 					});
 	const totalProducts = filteredProducts.length;
 	const totalPages = Math.ceil(totalProducts / productsPerPage);

@@ -75,7 +75,7 @@ export default function Home({ shower, remover, user, token, setlogin, setSucces
 	</div>
 	
 	:
-        <Products data={products} search={search} />
+        <Products data={products} search={search} selectedService={selectedService} />
 	}
       </div>
       <Bottom />
