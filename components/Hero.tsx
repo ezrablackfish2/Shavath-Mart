@@ -1,14 +1,12 @@
 import Image from "next/image";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
     return (
         <div>
-            <Image
-                width={0}
-                height={100}
-                sizes="10vw"
-                style={{width: '100%'}}
+            <img
 		alt="this is the main photo"
+		className={styles.hero}	
 		src="/hero.jpg"/>
         </div>
     )

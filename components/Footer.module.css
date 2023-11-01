@@ -93,15 +93,17 @@
 		display: none;
 	}
 	.footertable {
-		left: 5%
+		left: 3%
 	}
 	.tablehead {
 		font-size: 140%;
 	}
 }
-@media (max-width: 480px) {
+@media (max-width: 500px) {
 	.footertable {
 		left: 0%;
+		margin-left: 0%;
+		font-size: 90%;
 	}
 }
 
