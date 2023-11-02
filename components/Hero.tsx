@@ -1,13 +1,16 @@
 import Image from "next/image";
-import styles from "./Hero.module.css";
+import "./Hero.css";
 
 export default function Hero() {
     return (
-        <div>
+	<div className="titlephoto">
+        <div data-text="ShavathMart" className="herotitle">
+	ShavathMart
             <img
 		alt="this is the main photo"
-		className={styles.hero}	
+		className="hero"	
 		src="/hero.jpg"/>
         </div>
+	</div>
     )
 }
