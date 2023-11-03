@@ -27,8 +27,8 @@ export default function Footer() {
       <thead className={styles.tablehead}>
         <tr>
           <th>Services</th>
-          <th>Quick Links</th>
           <th>Contacts</th>
+          <th>Quick Links</th>
         </tr>
       </thead>
       <tbody className={styles.tablebody}>
