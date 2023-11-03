@@ -16,6 +16,7 @@
 	color: transparent;
 	-webkit-text-stroke: 0.3vw #01f387;
 	top: 150px;
+	margin-bottom: 200px;
 }
 .herotitle::before
 {
