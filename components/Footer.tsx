@@ -46,10 +46,10 @@ export default function Footer() {
 		
 		)}</td>
             <td>{social_handles.map(({name, icon, link})=> (
-                        <div className="flex my-1">
+                        <span>
                             <Link href={link}><img className={styles.footerimage} src={icon} /></Link>
                             <Link className={styles.footerlinking} href={link}>{name}</Link>
-                        </div>
+                        </span>
                     ))}
 	    </td>
           </tr>
