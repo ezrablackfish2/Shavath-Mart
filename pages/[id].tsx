@@ -68,7 +68,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
     const handleSubmit = (event: any) => {
         event.preventDefault();
 	const reviewData = {
-		productId: item._id,
+		productId: item.id,
 		message: review,
 	};
 	try {
@@ -94,12 +94,12 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
   if (router.isFallback) {
     return <div>Please Wait Loading</div>;
   }
-	const imageData = item.img.data.data;
+	const imageData = item.img.data;
 	const base64Image = Buffer.from(imageData).toString('base64');
 	const imageURI = `data:image/png;base64,${base64Image}`;
 
 	const formData = {
-	id : item._id,
+	id : item.id,
 	name: item.name,
 	price: item.price,
 //	img: item.img,
@@ -172,7 +172,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 //      formData2.append('isAvailable', availability);
 
         const formData2 = {
-        id : item._id ,
+        id : item.id ,
       name: name != '' ? name: item.name,
       price: price != '' ? price : item.price,
       img: image != '' ? image : item.img,
@@ -359,7 +359,7 @@ export async function getStaticPaths() {
   const data = await fetchData();
   
   const paths = data.map((item: any) => ({
-    params: { id: item._id },
+    params: { id: item.id.toString() },
   }));
 
   return {
@@ -373,7 +373,7 @@ interface Props {
 }
 export async function getStaticProps({ params }: Props) {
   const data = await fetchData();
-  const item = data.find((item: any) => item._id.toString() === params.id);
+  const item = data.find((item: any) => item.id.toString() === params.id);
 
   if (!item) {
     return {

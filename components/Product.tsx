@@ -12,13 +12,13 @@ type ProductProps = {
 	};
 };
 export default function Product(props: ProductProps) {
-	const imageData = props.product.img.data.data;
+	const imageData = props.product.img.data;
 	const base64Image = Buffer.from(imageData).toString('base64');
 	const imageURI = `data:image/png;base64,${base64Image}`;
     return (
         <div
             className={styles.products}>
-	<Link href={`/${props.product._id}`}>
+	<Link href={`/${props.product.id}`}>
             <img className={styles.productimage} src={imageURI}/>
 <p className={styles.productname}>
   {props.product.name.length > 17
