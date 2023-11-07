@@ -16,7 +16,7 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
     router.push(route);
   };
   const [name, setName] = useState<string>('');
-  const [price, setPrice] = useState<string>('');
+  const [price, setPrice] = useState<number>(0);
   const [image, setImage] = useState<File | null>(null);
   const [color, setColor] = useState<string>('');
   const [category, setCategory] = useState<string>('Category');
@@ -67,8 +67,7 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
 function remover() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    setSuccess(false);
-    setlogin(false);
+    setUploadSuccess(false);
   }
 if (uploadSuccess == false) {
   return (

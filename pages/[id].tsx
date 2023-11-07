@@ -158,10 +158,10 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
   const handleUpdate = (e: React.FormEvent) => {
     e.preventDefault();
     if (user && token) {
-//	setFormData({'_id': item._id});
+//	setFormData({'id': item.id});
 //	setFormData({'name': "ezra"});
 //	const formData2 = new FormData();	
-//      formData2.append('_id', item._id);
+//      formData2.append('id', item.id);
 //      formData2.append('name', name);
 //      formData2.append('price', parseFloat(price).toFixed(2));
 //      if (image) {
@@ -305,7 +305,7 @@ return (
         <h1 className={styles.detailreviewtitle}>Reviews</h1>
         <div className={styles.detailreviewcontent}>
 	{reviewFetch[0] ?
-	<ol className={styles.revieworder}>{reviewFetch.map(data => <li className={styles.reviewlists}> {data.productId == item._id ?<span> ⚫ {data.message} </span> : null}</li>)}</ol>
+	<ol className={styles.revieworder}>{reviewFetch.map(data => <li className={styles.reviewlists}> {data.productId == item.id ?<span> ⚫ {data.message} </span> : null}</li>)}</ol>
 	:
           <div>There are no reviews yet. Be the first to review {item.name} Your email address will not be published. Required fields are marked *</div>
 	}
