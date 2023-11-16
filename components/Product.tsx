@@ -9,6 +9,7 @@ type ProductProps = {
 	price : string;
 	color : string;
 	img : any;
+	isAvailable: boolean;
 	};
 };
 export default function Product(props: ProductProps) {

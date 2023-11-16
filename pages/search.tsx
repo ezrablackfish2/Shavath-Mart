@@ -21,6 +21,10 @@ interface SearchProps {
   setSuccess: any;
   search: any;
   setSearch: any;
+  setSelectedService: any;
+  selectedService: any;
+  setSelectedAbout: any;
+  selectedAbout: any;
 }
 export default function Searcher( {setSuccess, setlogin, search, setSearch, setSelectedAbout, setSelectedService, selectedAbout, selectedService}: SearchProps) {
 	

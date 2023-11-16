@@ -54,7 +54,7 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
       formData.append('color', color);
       formData.append('category', category);
       formData.append('description', description);
-      formData.append('isAvailable', availability);
+      formData.append('isAvailable', `${availability}`);
 	
 	console.log(category);
       onUpload(formData);
@@ -67,8 +67,6 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload, user, token }) => {
 function remover() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    setSuccess(false);
-    setlogin(false);
   }
 if (uploadSuccess == false) {
   return (

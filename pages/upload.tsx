@@ -12,6 +12,10 @@ interface UploadProps {
   setSuccess: any;
   search: any;
   setSearch: any;
+  selectedAbout: any;
+  setSelectedAbout: any;
+  selectedService: any;
+  setSelectedService: any;
 }
 
 const Upload: React.FC<UploadProps> = ({ user, token, setSuccess, setlogin, search, setSearch, setSelectedAbout, setSelectedService, selectedAbout, selectedService }) => {

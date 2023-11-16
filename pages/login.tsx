@@ -20,6 +20,10 @@ interface Props {
   response: any;
   search: any;
   setSearch: any;
+  selectedAbout: any;
+  setSelectedAbout: any;
+  selectedService: any;
+  setSelectedService: any;
 }
 
 function Login({ user, token, formData, setFormData, loggedin, setlogin, response, search, setSearch, setSelectedAbout, setSelectedService, selectedAbout, selectedService }: Props) {

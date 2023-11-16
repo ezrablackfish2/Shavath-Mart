@@ -8,6 +8,9 @@ interface Product {
 	price: string;
 	color: string;
 	img: string;
+	category: any;
+	isAvailable: any;
+	
 }
 type ProductsProp = {
 	data : Product[];
@@ -34,7 +37,7 @@ export default function Products(props: ProductsProp) {
 					});
 	const totalProducts = filteredProducts.length;
 	const totalPages = Math.ceil(totalProducts / productsPerPage);
-	const handlePageChange = (page) => {
+	const handlePageChange = (page: any) => {
     		setCurrentPage(page);
 	};
 	  const handleNextPage = () => {

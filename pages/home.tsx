@@ -28,7 +28,7 @@ interface HomeProps {
   search: any;
   selectedAbout: any;
   selectedService: any;
-  setSelectedServcie: any;
+  setSelectedService: any;
   setSelectedAbout: any;
 }
 

@@ -20,6 +20,13 @@ import apiClient from "../api/api-client-axios";
 import styl from "../components/Upload.module.css";
 import ServiceSelector from "../components/ServiceSelector2";
 
+interface Review {
+	productId: string;
+	message: string;
+}
+ interface Item {
+	_id: string;
+}
 
 
 interface Props {
@@ -33,8 +40,12 @@ interface Props {
 	setSelectedService: any;
 	selectedAbout: any;
 	setSelectedAbout: any;
+	user: any;
+	data: Review;
 }
-const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token, setSelectedAbout, setSelectedService, selectedAbout, selectedService }: Props) => {
+
+
+const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token, setSelectedAbout, setSelectedService, selectedAbout, selectedService}: Props) => {
 	const router = useRouter();
 	  const navigate = (route: string) => {
 		router.push(route);
@@ -175,7 +186,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
         id : item._id ,
       name: name != '' ? name: item.name,
       price: price != '' ? price : item.price,
-      img: image != '' ? image : item.img,
+      img: image != null ? image : item.img,
       color: color != '' ? color: item.color,
       category: category != '' ? category : item.category,
       description: description != '' ? description : item.description,
@@ -189,7 +200,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
   };
 
 
-	function ProductUpdater(formData2) {
+	function ProductUpdater(formData2: any) {
 	console.log(formData2);
 		 apiClient.post(`update/` ,
 			formData2,
@@ -305,7 +316,7 @@ return (
         <h1 className={styles.detailreviewtitle}>Reviews</h1>
         <div className={styles.detailreviewcontent}>
 	{reviewFetch[0] ?
-	<ol className={styles.revieworder}>{reviewFetch.map(data => <li className={styles.reviewlists}> {data.productId == item._id ?<span> ⚫ {data.message} </span> : null}</li>)}</ol>
+	<ol className={styles.revieworder}>{reviewFetch.map((data: Review) => <li className={styles.reviewlists}> {data.productId == item._id ?<span> ⚫ {data.message} </span> : null}</li>)}</ol>
 	:
           <div>There are no reviews yet. Be the first to review {item.name} Your email address will not be published. Required fields are marked *</div>
 	}
