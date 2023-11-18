@@ -16,7 +16,7 @@ interface HeaderProps {
   search: any;
   setSearch: any;
   selectedAbout: any;
-  selectedService: any;
+  selectedServcie: any;
   setSelectedAbout: (value: any) => void;
   setSelectedService: (value: any) => void;
 }
