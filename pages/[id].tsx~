@@ -96,7 +96,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
 
-  if (!router.isFallback) {
+  if (!router.isFallback && !item) {
     return (
  <>
     <Head>
