@@ -2,7 +2,6 @@
 	font-family: 'itim';
 	position: relative;
 	display: block;
-	color: #2ce27b;
 	font-size: 200%;
 	left: 30%;
 }
