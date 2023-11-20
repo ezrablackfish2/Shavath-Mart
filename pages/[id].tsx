@@ -96,7 +96,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
 
-  if (!router.isFallback && (item == undefined) && (item.img.data == undefined)) {
+  if (router.isFallback && (item == undefined) && (item.img.data == undefined)) {
     return (
  <>
     <Head>
@@ -110,10 +110,6 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 	</>
 	);
   }
-else if (router.isFallback && !item) {
-	console.log(item)
-return (<div> wait is loading</div>)
-}
 	const imageData = item.img.data;
 	const base64Image = Buffer.from(imageData).toString('base64');
 	const imageURI = `data:image/png;base64,${base64Image}`;
