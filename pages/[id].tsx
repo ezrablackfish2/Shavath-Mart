@@ -111,6 +111,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 	);
   }
 else if (router.isFallback && !item) {
+	console.log(item)
 return (<div> wait is loading</div>)
 }
 	const imageData = item.img.data;
