@@ -1,5 +1,4 @@
 module.exports = {
-    basePath: '/',
     async redirects() {
         return [
             {
