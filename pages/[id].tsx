@@ -96,19 +96,8 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
 
-  if (router.isFallback && (item === undefined)) {
-    return (
- <>
-    <Head>
-      <title>products</title>
-    </Head>
-    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Aguafina+Script&family=Amatic+SC&family=Barrio&family=Bellota:wght@300&family=Black+Ops+One&family=Caveat&family=Chakra+Petch:ital,wght@1,300&family=Cinzel&family=Cookie&family=Croissant+One&family=Dancing+Script&family=Faster+One&family=Fuggles&family=Gugi&family=Hammersmith+One&family=Homemade+Apple&family=Itim&family=Lilita+One&family=Montserrat+Alternates:wght@100&family=Nothing+You+Could+Do&family=Orbitron&family=Playball&family=Rajdhani&family=Satisfy&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&family=Space+Mono&family=Tilt+Prism&family=Yellowtail&display=swap" rel="stylesheet" />
-
-      <Header setlogin={setlogin} setSuccess={setSuccess} search={search} setSearch={setSearch} selectedService={selectedService} selectedAbout={selectedAbout} setSelectedService={setSelectedService} setSelectedAbout={setSelectedAbout}/>
-
-	<div className={styles.detailloading}>Please Wait Loading</div>
-	</>
-	);
+  if (router.isFallback && (!item || !item.img)) {
+    return <div>Please Wait Loading</div>;
   }
 	const imageData = item.img.data;
 	const base64Image = Buffer.from(imageData).toString('base64');
