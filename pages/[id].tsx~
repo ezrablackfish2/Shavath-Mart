@@ -96,7 +96,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
 
-  if (!router.isFallback && !item && !item.img) {
+  if (!router.isFallback && (item == undefined) && (item.img.data == undefined) {
     return (
  <>
     <Head>
