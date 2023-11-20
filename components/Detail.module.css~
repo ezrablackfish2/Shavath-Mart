@@ -1,7 +1,8 @@
 .detailloading {
-	font-family: 'Black Ops One', cursive;
+	font-family: 'Black Ops One';
 	position: relative;
-	display: block;
+	display: inline-block;
+	width: 70%;
 	color: #2ce27b;
 	font-size: 300%;
 	left: 30%;
