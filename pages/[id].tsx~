@@ -97,7 +97,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
   if (router.isFallback && (!item || !item.img)) {
-    return <div>Please Wait Loading</div>;
+    return <div className={styles.detailloading}>Please Wait Loading</div>;
   }
 	const imageData = item.img.data;
 	const base64Image = Buffer.from(imageData).toString('base64');
