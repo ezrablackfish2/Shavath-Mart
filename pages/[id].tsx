@@ -96,7 +96,7 @@ const ItemDetail = ({ item, user, setlogin, setSuccess, search, setSearch, token
 
 
 
-  if (router.isFallback && (!item || !item.img) && (item.img == undefined)) {
+  if (router.isFallback && (!item || !item.img) && (item ? item.img == undefined: item == undefined)) {
     return <div className={styles.detailloading}>Please Wait Loading</div>;
   }
 	const imageData = item.img.data;
